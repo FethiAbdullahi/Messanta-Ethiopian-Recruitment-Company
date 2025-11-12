@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-white text-dark font-sans antialiased;
+    font-family: var(--font-josefin), 'Josefin Sans', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans;
+    font-family: var(--font-josefin), 'Josefin Sans', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md;
+  }
+  
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-md;
+  }
+  
+  .glass-strong {
+    @apply bg-white/95 backdrop-blur-xl;
+  }
+  
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary via-[#14B8A6] to-[#0D9488];
+  }
+  
+  .gradient-accent {
+    @apply bg-gradient-to-br from-accent via-[#22D3EE] to-[#06B6D4];
+  }
+  
+  .gradient-warm {
+    @apply bg-gradient-to-br from-[#F0FDFA] via-[#CCFBF1] to-[#99F6E4];
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
+  }
+  
+  .gradient-ocean {
+    @apply bg-gradient-to-br from-[#0D9488] via-[#06B6D4] to-[#1E40AF];
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-3.5 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-3.5 rounded-full font-semibold text-base border-2 transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+  
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+}
+
