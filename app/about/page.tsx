@@ -67,7 +67,7 @@ export default function AboutPage() {
             {/* House Maid */}
             <div className="relative overflow-hidden">
               <Image
-                src="/maid.webp"
+                src="/main-maid.webp"
                 alt="House maid"
                 fill
                 className="object-cover scale-110"
@@ -492,7 +492,7 @@ export default function AboutPage() {
             {[
               { src: '/smiling-construction-worker-hard-hat-generative-ai_561855-74493.avif', alt: 'Construction workers', title: 'Construction Workers', desc: 'Skilled professionals building futures' },
               { src: '/nurse-tenderly-supports-elderly-woman-wheelchair.avif', alt: 'Healthcare workers', title: 'Healthcare Workers', desc: 'Compassionate caregivers making a difference' },  
-              { src: '/main-maid.webp', alt: 'House Maids', title: 'House Maids', desc: 'Dedicated professionals creating comfortable homes' },
+              { src: '/main-maid .webp', alt: 'House Maids', title: 'House Maids', desc: 'Dedicated professionals creating comfortable homes' },
             ].map((worker, index) => (
               <motion.div
                 key={worker.title}

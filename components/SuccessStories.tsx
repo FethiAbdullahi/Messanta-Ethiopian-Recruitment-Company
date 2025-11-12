@@ -10,21 +10,21 @@ const stories = [
     role: 'Construction Worker',
     location: 'Addis Ababa → Riyadh',
     quote: 'Skills for Life Training helped me develop the skills I needed for international construction work. The training and support were exceptional.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+    image: '/Alemayehu.webp',
   },
   {
     name: 'Meron K.',
     role: 'Healthcare Assistant',
     location: 'Addis Ababa → Dubai',
     quote: 'I never imagined I could work internationally. Skills for Life Training prepared me with the right skills and supported me every step of the way.',
-    image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600&q=80',
+    image: '/Meron.webp',
   },
   {
     name: 'Selam W.',
     role: 'House Maid',
     location: 'Addis Ababa → Doha',
     quote: 'The training and preparation I received before placement was invaluable. I felt confident and ready for my new role.',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80',
+    image: '/Selam.webp',
   },
 ];
 
