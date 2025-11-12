@@ -491,7 +491,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { src: '/smiling-construction-worker-hard-hat-generative-ai_561855-74493.avif', alt: 'Construction workers', title: 'Construction Workers', desc: 'Skilled professionals building futures' },
-              { src: '/nurse-tenderly-supports-elderly-woman-wheelchair-providing-essential-assistance-their-caregiving-session-young-nurse-assisting-senior-nursing-home-ai-generated_538213-33640.avif', alt: 'Healthcare workers', title: 'Healthcare Workers', desc: 'Compassionate caregivers making a difference' },
+              { src: '/nurse-tenderly-supports-elderly-woman-wheelchair.avif', alt: 'Healthcare workers', title: 'Healthcare Workers', desc: 'Compassionate caregivers making a difference' },  
               { src: '/main-maid.webp', alt: 'House Maids', title: 'House Maids', desc: 'Dedicated professionals creating comfortable homes' },
             ].map((worker, index) => (
               <motion.div
