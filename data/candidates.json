@@ -11,7 +11,7 @@
     "experience": "5 years construction experience, certified in safety protocols",
     "languages": ["Amharic", "English"],
     "destination_preference": "Middle East",
-    "image": "/Alemayehu .webp",
+    "image": "/Alemayehu.webp",
     "cv_url": "#"
   },
   {
@@ -41,7 +41,7 @@
     "experience": "7 years in hospitality, hotel management background",
     "languages": ["Amharic", "English"],
     "destination_preference": "Europe, Middle East",
-    "image": "/Yonas .webp",
+    "image": "/Yonas.webp",
     "cv_url": "#"
   },
   {
@@ -71,7 +71,7 @@
     "experience": "6 years electrical and construction work, licensed electrician",
     "languages": ["Amharic", "English"],
     "destination_preference": "Middle East, Europe",
-    "image": "/Tewodros .webp",
+    "image": "/Tewodros.webp",
     "cv_url": "#"
   },
   {
@@ -86,7 +86,7 @@
     "experience": "4 years healthcare experience, specialized in patient care",
     "languages": ["Amharic", "English"],
     "destination_preference": "Gulf Countries",
-    "image": "/Hana .webp",
+    "image": "/Hana.webp",
     "cv_url": "#"
   }
 ]

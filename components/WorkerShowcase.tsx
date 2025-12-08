@@ -9,7 +9,7 @@ const workers = [
     name: 'Alemayehu',
     role: 'Construction Specialist',
     location: 'Riyadh, Saudi Arabia',
-    image: '/Alemayehu .webp',
+    image: '/Alemayehu.webp',
     quote: 'The training gave me confidence. Now I lead a team of 15 workers.',
     skills: ['Welding', 'Safety Certified', 'Team Leadership'],
   },
