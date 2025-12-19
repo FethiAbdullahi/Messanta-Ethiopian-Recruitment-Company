@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { MapPin, Award, Globe, Download, UserCheck } from 'lucide-react';
 import { useState } from 'react';
 import RequestShortlistModal from './RequestShortlistModal';
+import { useTranslation } from '@/hooks/useTranslation';
 
 type Candidate = {
   id: string;
@@ -28,6 +29,7 @@ interface CandidateCardProps {
 }
 
 export default function CandidateCard({ candidate, index }: CandidateCardProps) {
+  const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -48,7 +50,7 @@ export default function CandidateCard({ candidate, index }: CandidateCardProps) 
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-4 end-4">
             <span className="px-4 py-1.5 bg-gradient-to-r from-accent to-accent/80 text-white rounded-full text-xs font-bold shadow-medium backdrop-blur-sm">
               {candidate.availability}
             </span>
@@ -63,7 +65,7 @@ export default function CandidateCard({ candidate, index }: CandidateCardProps) 
               <MapPin size={14} />
               {candidate.location}
             </span>
-            <span>Age {candidate.age}</span>
+            <span>{t('candidates.age')} {candidate.age}</span>
           </div>
 
           {/* Skills */}
@@ -97,7 +99,7 @@ export default function CandidateCard({ candidate, index }: CandidateCardProps) 
 
           {/* Destination Preference */}
           <p className="text-sm text-gray-500 mb-4">
-            Preferred: {candidate.destination_preference}
+            {t('candidates.preferred')}: {candidate.destination_preference}
           </p>
 
           {/* Actions */}
@@ -107,7 +109,7 @@ export default function CandidateCard({ candidate, index }: CandidateCardProps) 
               className="flex-1 px-5 py-2.5 gradient-accent text-white rounded-full text-sm font-bold hover:scale-105 transition-all duration-300 shadow-medium hover:shadow-lg flex items-center justify-center gap-2"
             >
               <UserCheck size={18} />
-              Request Shortlist
+              {t('candidates.requestShortlist')}
             </button>
             {candidate.cv_url && candidate.cv_url !== '#' && (
               <a
@@ -116,7 +118,7 @@ export default function CandidateCard({ candidate, index }: CandidateCardProps) 
                 className="px-4 py-2 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2"
               >
                 <Download size={16} />
-                CV
+                {t('candidates.downloadCV')}
               </a>
             )}
           </div>
@@ -131,4 +133,3 @@ export default function CandidateCard({ candidate, index }: CandidateCardProps) 
     </>
   );
 }
-

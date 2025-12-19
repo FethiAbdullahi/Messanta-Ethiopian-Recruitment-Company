@@ -6,10 +6,12 @@ import { Clock, DollarSign, GraduationCap, Calendar, ArrowRight } from 'lucide-r
 import Link from 'next/link';
 import programsData from '@/data/programs.json';
 import EnrollModal from '@/components/EnrollModal';
+import { useTranslation } from '@/hooks/useTranslation';
 
 type Program = typeof programsData[0];
 
 export default function ProgramsPage() {
+  const { t, isRTL } = useTranslation();
   const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -30,11 +32,10 @@ export default function ProgramsPage() {
             className="text-center mb-12"
           >
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-dark mb-4">
-              Training Programs
+              {t('programs.title')}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive training programs designed to prepare you for safe, successful overseas employment.
-              All programs include certification, no hidden fees, and ongoing support.
+              {t('programs.subtitle')}
             </p>
           </motion.div>
 
@@ -74,11 +75,11 @@ export default function ProgramsPage() {
                     </div>
                     <div className="flex items-center gap-2 text-gray-600">
                       <GraduationCap size={18} />
-                      <span className="text-sm">Certified</span>
+                      <span className="text-sm">{t('programs.certified')}</span>
                     </div>
                     <div className="flex items-center gap-2 text-gray-600">
                       <Calendar size={18} />
-                      <span className="text-sm">Starts {new Date(program.next_start).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                      <span className="text-sm">{t('programs.starts')} {new Date(program.next_start).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
                     </div>
                   </div>
 
@@ -89,17 +90,17 @@ export default function ProgramsPage() {
 
                   {/* Curriculum Preview */}
                   <div className="mb-6">
-                    <h3 className="text-sm font-semibold text-dark mb-2">Curriculum Includes:</h3>
+                    <h3 className="text-sm font-semibold text-dark mb-2">{t('programs.curriculumIncludes')}</h3>
                     <ul className="space-y-1">
                       {program.curriculum.slice(0, 3).map((item, idx) => (
                         <li key={idx} className="text-sm text-gray-600 flex items-center gap-2">
-                          <ArrowRight size={14} className="text-accent" />
+                          <ArrowRight size={14} className={`text-accent ${isRTL ? 'rotate-180' : ''}`} />
                           {item}
                         </li>
                       ))}
                       {program.curriculum.length > 3 && (
                         <li className="text-sm text-gray-500">
-                          + {program.curriculum.length - 3} more modules
+                          {t('programs.moreModules').replace('{count}', String(program.curriculum.length - 3))}
                         </li>
                       )}
                     </ul>
@@ -110,7 +111,7 @@ export default function ProgramsPage() {
                     onClick={() => handleEnroll(program)}
                     className="w-full px-6 py-3.5 gradient-primary text-white rounded-full font-bold hover:scale-105 transition-all duration-300 shadow-medium hover:shadow-lg"
                   >
-                    Enroll Now
+                    {t('programs.enrollNow')}
                   </button>
                 </div>
               </motion.div>
@@ -127,11 +128,10 @@ export default function ProgramsPage() {
           >
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-serif font-bold text-dark mb-4">
-                Transparent Pricing, No Hidden Fees
+                {t('programs.transparentPricing')}
               </h3>
               <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                We believe in complete transparency. All program fees are clearly stated upfront.
-                Payment plans are available, and we never charge hidden fees for placement or support services.
+                {t('programs.transparentPricingText')}
               </p>
             </div>
           </motion.div>
@@ -148,4 +148,3 @@ export default function ProgramsPage() {
     </>
   );
 }
-

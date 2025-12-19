@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Award, MapPin, Briefcase } from 'lucide-react';
+import { MapPin, Briefcase } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const workers = [
   {
@@ -32,6 +33,8 @@ const workers = [
 ];
 
 export default function WorkerShowcase() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-24 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,10 +46,10 @@ export default function WorkerShowcase() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-dark mb-6">
-            Real People, Real Stories
+            {t('workers.title')}
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Meet the skilled workers who transformed their lives through training and dedication
+            {t('workers.subtitle')}
           </p>
         </motion.div>
 
@@ -70,7 +73,7 @@ export default function WorkerShowcase() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <div className="absolute bottom-0 start-0 end-0 p-6 text-white">
                   <h3 className="text-2xl font-bold mb-1">{worker.name}</h3>
                   <div className="flex items-center gap-2 text-sm text-white/90 mb-2">
                     <Briefcase size={14} />
@@ -104,4 +107,3 @@ export default function WorkerShowcase() {
     </section>
   );
 }
-

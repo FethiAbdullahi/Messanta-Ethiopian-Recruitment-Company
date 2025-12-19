@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface Program {
   id: string;
@@ -17,6 +18,7 @@ interface EnrollModalProps {
 }
 
 export default function EnrollModal({ isOpen, onClose, program }: EnrollModalProps) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     fullName: '',
     dob: '',
@@ -87,12 +89,12 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
             <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between">
                 <h2 className="text-2xl font-serif font-bold text-dark">
-                  Enroll in {program.title}
+                  {t('modals.enrollIn')} {program.title}
                 </h2>
                 <button
                   onClick={onClose}
                   className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                  aria-label="Close modal"
+                  aria-label={t('common.close')}
                 >
                   <X size={24} />
                 </button>
@@ -106,21 +108,21 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
                     className="text-center py-12"
                   >
                     <CheckCircle className="mx-auto mb-4 text-green-500" size={64} />
-                    <h3 className="text-2xl font-semibold text-dark mb-2">Enrollment Submitted!</h3>
+                    <h3 className="text-2xl font-semibold text-dark mb-2">{t('modals.enrollmentSubmitted')}</h3>
                     <p className="text-gray-600">
-                      We've received your enrollment application and will contact you soon.
+                      {t('modals.enrollmentReceived')}
                     </p>
                   </motion.div>
                 ) : (
                   <>
                     <p className="text-gray-600 mb-6">
-                      Fill out the form below to enroll in this training program. All fields marked with * are required.
+                      {t('modals.enrollmentFormNote')}
                     </p>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
                         <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
-                          Full Name *
+                          {t('forms.fullName')} *
                         </label>
                         <input
                           type="text"
@@ -136,7 +138,7 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <label htmlFor="dob" className="block text-sm font-medium text-gray-700 mb-1">
-                            Date of Birth *
+                            {t('forms.dateOfBirth')} *
                           </label>
                           <input
                             type="date"
@@ -151,7 +153,7 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
 
                         <div>
                           <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                            Phone Number *
+                            {t('forms.phoneNumber')} *
                           </label>
                           <input
                             type="tel"
@@ -167,7 +169,7 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
 
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                          Email Address *
+                          {t('forms.emailAddress')} *
                         </label>
                         <input
                           type="email"
@@ -183,7 +185,7 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <label htmlFor="nationalId" className="block text-sm font-medium text-gray-700 mb-1">
-                            National ID Number *
+                            {t('forms.nationalId')} *
                           </label>
                           <input
                             type="text"
@@ -198,7 +200,7 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
 
                         <div>
                           <label htmlFor="passport" className="block text-sm font-medium text-gray-700 mb-1">
-                            Passport Number (if available)
+                            {t('forms.passport')}
                           </label>
                           <input
                             type="text"
@@ -213,7 +215,7 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
 
                       <div>
                         <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
-                          Previous Experience
+                          {t('forms.experience')}
                         </label>
                         <textarea
                           id="experience"
@@ -221,14 +223,14 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
                           rows={3}
                           value={formData.experience}
                           onChange={handleChange}
-                          placeholder="Describe your relevant work experience..."
+                          placeholder={t('forms.experiencePlaceholder')}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent resize-none"
                         />
                       </div>
 
                       <div>
                         <label htmlFor="cv" className="block text-sm font-medium text-gray-700 mb-1">
-                          CV/Resume Link (optional)
+                          {t('forms.cvLink')}
                         </label>
                         <input
                           type="text"
@@ -236,7 +238,7 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
                           name="cv"
                           value={formData.cv}
                           onChange={handleChange}
-                          placeholder="Paste a link to your CV or resume"
+                          placeholder={t('forms.cvLinkPlaceholder')}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
                         />
                       </div>
@@ -247,14 +249,14 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
                           disabled={isSubmitting}
                           className="flex-1 px-6 py-3 bg-primary text-white rounded-full font-medium hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          {isSubmitting ? 'Submitting...' : 'Submit Enrollment'}
+                          {isSubmitting ? t('forms.submitting') : t('forms.submitEnrollment')}
                         </button>
                         <button
                           type="button"
                           onClick={onClose}
                           className="px-6 py-3 bg-gray-100 text-dark rounded-full font-medium hover:bg-gray-200 transition-colors"
                         >
-                          Cancel
+                          {t('common.cancel')}
                         </button>
                       </div>
                     </form>
@@ -268,4 +270,3 @@ export default function EnrollModal({ isOpen, onClose, program }: EnrollModalPro
     </AnimatePresence>
   );
 }
-

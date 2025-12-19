@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const josefinSans = Josefin_Sans({ 
   subsets: ["latin"],
@@ -52,7 +53,7 @@ export default function RootLayout({
       "contactType": "customer service",
       "email": "info@skillsforlife.com",
       "areaServed": "ET",
-      "availableLanguage": ["en", "am"]
+      "availableLanguage": ["en", "am", "ar"]
     },
     "address": {
       "@type": "PostalAddress",
@@ -62,19 +63,21 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={josefinSans.variable}>
+    <html lang="en" className={josefinSans.variable} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-          <body className="font-sans">
-            <Nav />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
-            <ScrollToTop />
-          </body>
+      <body className="font-sans">
+        <LanguageProvider>
+          <Nav />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+          <ScrollToTop />
+        </LanguageProvider>
+      </body>
     </html>
   );
 }

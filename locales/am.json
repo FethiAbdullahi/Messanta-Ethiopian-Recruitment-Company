@@ -1,0 +1,409 @@
+{
+  "common": {
+    "home": "መነሻ",
+    "loading": "በመጫን ላይ...",
+    "error": "ስህተት",
+    "success": "ተሳክቷል",
+    "save": "አስቀምጥ",
+    "cancel": "ሰርዝ",
+    "submit": "አስገባ",
+    "close": "ዝጋ",
+    "search": "ፈልግ",
+    "filter": "አጣራ",
+    "filters": "ማጣሪያዎች",
+    "clearAll": "ሁሉንም አጥፋ",
+    "learnMore": "ተጨማሪ ይወቁ",
+    "getStarted": "ጀምር",
+    "viewAll": "ሁሉንም ይመልከቱ",
+    "readMore": "ተጨማሪ ያንብቡ",
+    "showMore": "ተጨማሪ አሳይ",
+    "showLess": "አነስ አድርግ",
+    "yes": "አዎ",
+    "no": "አይ",
+    "or": "ወይም",
+    "and": "እና",
+    "all": "ሁሉም",
+    "none": "ምንም",
+    "required": "አስፈላጊ",
+    "optional": "አማራጭ",
+    "scrollToExplore": "ለማሰስ ወደ ታች ይሸብልሉ",
+    "since": "ከ",
+    "workersPlaced": "የተቀጠሩ ሰራተኞች",
+    "countries": "ሀገራት",
+    "successRate": "የስኬት መጠን"
+  },
+  "navigation": {
+    "programs": "ፕሮግራሞች",
+    "candidates": "እጩዎች",
+    "forEmployers": "ለቀጣሪዎች",
+    "about": "ስለ እኛ",
+    "contact": "አግኙን",
+    "browseJobs": "ስራዎችን ይፈልጉ",
+    "aboutUs": "ስለ እኛ"
+  },
+  "hero": {
+    "everyJourney": "እያንዳንዱ ጉዞ",
+    "starts": "ይጀምራል",
+    "withSingleStep": "በአንድ እርምጃ",
+    "subtitle": "ከስልጠና እስከ ምደባ፣ ኢትዮጵያውያን ሰራተኞችን ወደ ደህንነታቸው የተጠበቀና ስኬታማ ዓለም አቀፍ ስራ እንመራለን።",
+    "startYourJourney": "ጉዞዎን ይጀምሩ",
+    "readSuccessStories": "የስኬት ታሪኮችን ያንብቡ"
+  },
+  "about": {
+    "title": "ስለ እኛ",
+    "ourStory": "ታሪካችን",
+    "heroSubtitle": "በስልጠና፣ በእምነት እና በዕድል ሕይወትን መቀየር። እያንዳንዱ ሰራተኛ ታሪክ አለው - ቀጣዩን ምዕራፍ ለመጻፍ እንረዳለን።",
+    "buildingFutures": "የወደፊት ህልሞችን መገንባት",
+    "ourMission": "ተልዕኮአችን",
+    "missionTitle": "ሕይወትን ማበረታታት፣ አንድ ታሪክ በአንድ ጊዜ",
+    "missionText1": "Skills for Life Training PLC ኢትዮጵያውያን ሰራተኞች ወደ ደህንነታቸው የተጠበቀና በደንብ የሚከፈልባቸው ዕድሎች እንዴት እንደሚደርሱ ይቀይራል። ከኢንዱስትሪ ጋር የተገናኘ ስልጠና፣ ጥብቅ የማክበር ድጋፍ እና ግልጽ ሂደቶችን በማጣመር እጩዎችን ለዓለም አቀፍ ስራ እናዘጋጃለን።",
+    "missionText2": "ግባችን እንቅፋቶችን ማስወገድ፣ የተደበቁ ወጪዎችን ማስወገድ እና እያንዳንዱ ተሰልጣኝ ተግባራዊ ክህሎቶችና መመሪያዎችን እንዲያገኝ ማስቻል ነው ስለዚህ በውጭ አገር ሊያብቡ እና ማህበረሰባቸውን የሚያጠናክር ልምድ ይዘው መመለስ ይችላሉ።",
+    "missionText3": "የሰራተኞችን ደህንነት፣ ፍትሃዊ አያያዝ እና ለሰራተኞችም ሆነ ለቀጣሪዎች ረጅም ጊዜ ስኬትን ቅድሚያ የሚሰጥ ሰው-ተኮር አካሄድን እናምናለን።",
+    "whatDrivesUs": "የሚያንቀሳቅሰን",
+    "ourCoreValues": "ዋና እሴቶቻችን",
+    "coreValuesSubtitle": "በእያንዳንዱ ውሳኔ፣ በእያንዳንዱ የስልጠና ፕሮግራም እና በምንገነባው እያንዳንዱ ግንኙነት የሚመራን መርሆች።",
+    "ourCommitment": "ቁርጠኝነታችን",
+    "goalsObjectives": "ግቦች እና ዓላማዎች",
+    "goalsSubtitle": "ግቦቻችን የውጭ አገር ስራን ለኢትዮጵያ ሰራተኞች ደህንነቱ የተጠበቀ፣ ፍትሃዊ እና ዘላቂ ማድረግ ነው። ትኩረታችን በ:",
+    "ourEvolution": "እድገታችን",
+    "ourJourney": "ጉዞአችን",
+    "journeySubtitle": "ከራዕይ እስከ እንቅስቃሴ - ዛሬ ማን እንደሆንን የቀረጹ ምዕራፎች።",
+    "whoWeServe": "የምናገለግላቸው",
+    "ourWorkers": "ሰራተኞቻችን",
+    "workersSubtitle": "የእኛ ቁርጠኛ የስልጠና ባለሙያዎች፣ የሙያ አማካሪዎች እና የድጋፍ ሰራተኞች ቡድን ለተማሪዎቻችን ምርጥ የትምህርት ውጤቶችን ለማረጋገጥ በጋራ ይሰራሉ።",
+    "values": {
+      "humanCentered": "ሰው-ተኮር",
+      "humanCenteredDesc": "ሂደቶችን ሳይሆን ሰዎችን ቅድሚያ እንሰጣለን። እያንዳንዱ ግንኙነት ግላዊ፣ አክብሮት ያለው እና ትርጉም ያለው ነው።",
+      "excellence": "ልቀት",
+      "excellenceDesc": "በስልጠና ውስጥ ከፍተኛውን ደረጃ እንጠብቃለን፣ ጥራት ያለው ትምህርት እና ልዩ የትምህርት ልምዶችን እናረጋግጣለን።",
+      "trust": "እምነት",
+      "trustDesc": "ግልጽነት እና ታማኝነት የምናደርገውን ሁሉ ይመራል። በእምነት ላይ የተመሰረቱ ዘላቂ ግንኙነቶችን እንገነባለን።",
+      "impact": "ተጽዕኖ",
+      "impactDesc": "ስኬትን የምንለካው በሰዎች ሕይወት እና በማህበረሰቦች ውስጥ በምንፈጥረው አዎንታዊ ተጽዕኖ ነው።"
+    },
+    "goals": {
+      "regularLegalStatus": "ህጋዊ የስራ ደረጃ",
+      "regularLegalStatusDesc": "ሰራተኞች ትክክለኛ፣ ህጋዊ ፓስፖርት፣ ቪዛ እና የስራ ፈቃድ ዝግጅቶች እንዲኖራቸው ማረጋገጥ።",
+      "fairCosts": "ፍትሃዊ ወጪዎች",
+      "fairCostsDesc": "አላስፈላጊ ወጪዎችን ለመከላከል ግልጽ እና ምክንያታዊ የክፍያ መዋቅሮችን መጠበቅ።",
+      "workerSafety": "የሰራተኛ ደህንነት",
+      "workerSafetyDesc": "በማጣራት፣ በኮንትራቶች እና በድጋፍ ከብዝበዛ፣ ከአላግባብ አያያዝ እና ከግዳጅ ስራ ጥበቃን ቅድሚያ መስጠት።",
+      "reintegrationImpact": "ማካተት እና ተጽዕኖ",
+      "reintegrationImpactDesc": "የሚመለሱ ሰራተኞች ክህሎቶችን እንዲያካፍሉ እና የአካባቢ ልማትን እንዲያነቃቁ ማስቻል።",
+      "nationalRepresentation": "ብሔራዊ ውክልና",
+      "nationalRepresentationDesc": "የኢትዮጵያን ባህላዊ ጥንካሬዎች እና ሙያዊነት በውጭ አገር ማስተዋወቅ።",
+      "jobCreation": "የስራ ፈጠራ",
+      "jobCreationDesc": "ለዜጎች ዕድሎችን ለማስፋት ከባለስልጣናት እና ቀጣሪዎች ጋር መተባበር።",
+      "responsibleRemittance": "ሃላፊነት ያለው ገንዘብ ላኪ",
+      "responsibleRemittanceDesc": "ሰራተኞች ገንዘብ ወደ ቤት ለመላክ ደህንነቱ የተጠበቀ፣ ህጋዊ ጣቢያዎችን እንዲጠቀሙ መምራት፣ ብሔራዊ ብልጽግናን መደገፍ።"
+    },
+    "timeline": {
+      "2020": {
+        "title": "ምስረታ",
+        "description": "Skills for Life Training PLC ግለሰቦችን በጥራት ትምህርት እና በክህሎት ልማት ለማበረታታት በራዕይ ተመሰረተ።"
+      },
+      "2021": {
+        "title": "የመጀመሪያ ምደባዎች",
+        "description": "የመጀመሪያውን የተማሪዎች ቡድን ከኢንዱስትሪ ዝግጁ ክህሎቶች ጋር በተሳካ ሁኔታ አስመረቅን።"
+      },
+      "2022": {
+        "title": "መስፋፋት",
+        "description": "የስልጠና ፕሮግራሞቻችንን አስፋፍተን ከመሪ ድርጅቶች እና ቀጣሪዎች ጋር ሽርክናዎችን መሰረትን።"
+      },
+      "2023": {
+        "title": "እውቅና",
+        "description": "ከ500+ ስኬታማ ተመራቂዎች ጋር በኢትዮጵያ እንደ መሪ የስልጠና ተቋም እውቅና አገኘን።"
+      },
+      "2024": {
+        "title": "ፈጠራ",
+        "description": "ዲጂታል መድረክ አስጀመርን እና የስልጠና ፕሮግራሞችን በዘመናዊ የመማሪያ ቴክኖሎጂዎች አሻሻልን።"
+      }
+    },
+    "workerTypes": {
+      "constructionWorkers": "የግንባታ ሰራተኞች",
+      "constructionWorkersDesc": "የወደፊት ህልሞችን የሚገነቡ ባለሙያዎች",
+      "healthcareWorkers": "የጤና ሰራተኞች",
+      "healthcareWorkersDesc": "ለውጥ የሚያመጡ ርህሩህ ተንከባካቢዎች",
+      "houseMaids": "የቤት ሰራተኞች",
+      "houseMaidsDesc": "ምቹ ቤቶችን የሚፈጥሩ ቁርጠኛ ባለሙያዎች"
+    }
+  },
+  "story": {
+    "title": "ጉዞው",
+    "subtitle": "ከምኞት እስከ ስኬት - እያንዳንዱ ሰራተኛ ታሪክ አለው። እንዴት እንደምንረዳ ይኸውና።",
+    "continueJourney": "ጉዞውን ቀጥል",
+    "steps": {
+      "beginning": {
+        "title": "ጅማሬ",
+        "subtitle": "ህልም ሥር ይሰዳል",
+        "description": "እያንዳንዱ ሰራተኛ በህልም ይጀምራል - ለቤተሰቡ ለመስጠት፣ የተሻለ የወደፊት ለመገንባት፣ ትርጉም ያላቸው ክህሎቶችን ለማግኘት። በSkills for Life፣ በዚህ የዕድል ጊዜ እንገናኛለን።"
+      },
+      "training": {
+        "title": "ስልጠና",
+        "subtitle": "ለውጥ የሚያመጡ ክህሎቶች",
+        "description": "በሰፊ፣ ተግባራዊ የስልጠና ፕሮግራሞች፣ ሰራተኞች ቴክኒካዊ ክህሎቶችን ብቻ ሳይሆን በራስ መተማመን፣ የደህንነት ግንዛቤ እና ሙያዊ ዝግጁነትንም ያዳብራሉ።"
+      },
+      "certification": {
+        "title": "ምስክር ወረቀት",
+        "subtitle": "እውቅና እና ተዓማኒነት",
+        "description": "በዓለም አቀፍ ደረጃ የታወቁ የምስክር ወረቀቶች ብቃታቸውን ያረጋግጣሉ። ይህ ወረቀት የወራት ትጋት፣ ያልተቆጠሩ የልምምድ ሰዓታት እና ለልቀት ያለ ቁርጠኝነት ይወክላል።"
+      },
+      "placement": {
+        "title": "ምደባ",
+        "subtitle": "አዲስ ምዕራፍ ይጀምራል",
+        "description": "ተገቢ ሰነዶች፣ ህጋዊ ድጋፍ እና ቀጣይነት ያለው መመሪያ ያለው፣ ሰራተኞች ዓለም አቀፍ ጉዞአቸውን ይጀምራሉ። ክህሎቶችን ብቻ ሳይሆን ተስፋ፣ ቆራጥነት እና የቡድናችንን ድጋፍ ይዘው ይሄዳሉ።"
+      },
+      "impact": {
+        "title": "ተጽዕኖ",
+        "subtitle": "የስኬት ታሪኮች",
+        "description": "ከዓመታት በኋላ እነዚህ ሰራተኞች በልምድ፣ በቁጠባ እና በአዳዲስ ክህሎቶች ይመለሳሉ። በማህበረሰባቸው ውስጥ ኢንቬስት ያደርጋሉ፣ ንግዶችን ይጀምራሉ እና ቀጣዩን ትውልድ ያነቃቃሉ።"
+      }
+    },
+    "cta": {
+      "title": "ታሪክዎን ለመጀመር ዝግጁ ነዎት?",
+      "subtitle": "በSkills for Life Training ሕይወታቸውን የቀየሩ በመቶዎች የሚቆጠሩ ሰራተኞችን ይቀላቀሉ።",
+      "explorePrograms": "ፕሮግራሞችን ያስሱ",
+      "viewSuccessStories": "የስኬት ታሪኮችን ይመልከቱ"
+    }
+  },
+  "workers": {
+    "title": "እውነተኛ ሰዎች፣ እውነተኛ ታሪኮች",
+    "subtitle": "በስልጠና እና በትጋት ሕይወታቸውን የቀየሩ ብቁ ሰራተኞችን ይገናኙ"
+  },
+  "services": {
+    "title": "አገልግሎቶቻችን",
+    "subtitle": "ለፍላጎትዎ የተበጁ ሁሉን አቀፍ የስልጠና መፍትሄዎች",
+    "professionalTraining": "ሙያዊ ስልጠና",
+    "professionalTrainingDesc": "ለሙያ ስኬት እና ለግል እድገት አስፈላጊ ክህሎቶችን ለማዳበር የተነደፉ ሁሉን አቀፍ የስልጠና ፕሮግራሞች።",
+    "skillAssessment": "የክህሎት ግምገማ",
+    "skillAssessmentDesc": "ጥንካሬዎችን እና የልማት ቦታዎችን ለመለየት ሁሉን አቀፍ የክህሎት ግምገማዎች፣ ግላዊ የመማሪያ መንገዶችን ያረጋግጣሉ።",
+    "careerDevelopment": "የሙያ ልማት",
+    "careerDevelopmentDesc": "ተማሪዎች ሙያዊ ግባቸውን እንዲያሳኩ ለመርዳት ቀጣይነት ያለው የሙያ ልማት ድጋፍ እና አማካሪነት።",
+    "jobPlacement": "የስራ ምደባ ድጋፍ",
+    "jobPlacementDesc": "ተመራቂዎችን ከስራ ዕድሎች ጋር ለማገናኘት የሙያ ምደባ ድጋፍ እና የስራ ዝግጁነት ስልጠና።"
+  },
+  "path": {
+    "title": "ወደ ስራ ምደባ መንገድ",
+    "subtitle": "ከስልጠና እስከ ስኬታማ ማካተት ግልጽ፣ ደረጃ በደረጃ ሂደታችን",
+    "steps": {
+      "training": {
+        "title": "ስልጠና",
+        "description": "ሁሉን አቀፍ የክህሎት ልማት እና የምስክር ወረቀት ፕሮግራሞች"
+      },
+      "certification": {
+        "title": "ምስክር ወረቀት",
+        "description": "በዓለም አቀፍ ደረጃ የታወቁ የምስክር ወረቀቶች እና ማረጋገጫዎች"
+      },
+      "placement": {
+        "title": "ምደባ",
+        "description": "ደህንነቱ የተጠበቀ፣ ህጋዊ ምደባ ከተረጋገጡ ቀጣሪዎች ጋር"
+      },
+      "support": {
+        "title": "በቦታ ላይ ድጋፍ",
+        "description": "በስራ ወቅት ቀጣይነት ያለው ጥበቃ እና ድጋፍ"
+      },
+      "reintegration": {
+        "title": "ማካተት",
+        "description": "ለሚመለሱ ሰራተኞች እና ለማህበረሰብ ተጽዕኖ ድጋፍ"
+      }
+    }
+  },
+  "mission": {
+    "title": "ተልዕኮአችን",
+    "text1": "በSkills for Life Training PLC፣ እያንዳንዱ ግለሰብ ጥራት ያለው ትምህርት እና የክህሎት ልማት ማግኘት ይገባዋል ብለን እናምናለን። ተልዕኮአችን ሰዎችን ሕይወታቸውን ለመቀየር እና ስኬታማ ሙያዎችን ለመገንባት በሚያስፈልጉ ዕውቀት እና ክህሎቶች ማበረታታት ነው።",
+    "text2": "ለተማሪዎቻችን እና አጋሮቻችን ልዩ ውጤቶችን ለማቅረብ ሙያዊ የስልጠና ፕሮግራሞችን ከተግባራዊ፣ ተጨባጭ ትምህርት ጋር እናጣምራለን። እያንዳንዱ የስልጠና ፕሮግራም ወደ የበለጠ ብቃት ያለው፣ በራስ የሚተማመን እና ብልጽጉና ወደፊት እርምጃ ነው።",
+    "text3": "እምነት፣ ልቀት እና ለተማሪዎቻችን ያለ ትክክለኛ እንክብካቤ የምናደርገው ሁሉ ልብ ውስጥ ነው።",
+    "candidatesPlaced": "የተመደቡ እጩዎች",
+    "livesChanged": "የተቀየሩ ሕይወቶች"
+  },
+  "programs": {
+    "title": "የስልጠና ፕሮግራሞች",
+    "subtitle": "ለደህንነቱ የተጠበቀ፣ ስኬታማ የውጭ አገር ስራ ለማዘጋጀት የተነደፉ ሁሉን አቀፍ የስልጠና ፕሮግራሞች። ሁሉም ፕሮግራሞች የምስክር ወረቀት፣ የተደበቁ ክፍያዎች የሉም እና ቀጣይነት ያለው ድጋፍ ያካትታሉ።",
+    "enrollNow": "አሁን ይመዝገቡ",
+    "curriculumIncludes": "ሥርዓተ ትምህርት ያካትታል:",
+    "moreModules": "+ {count} ተጨማሪ ሞጁሎች",
+    "certified": "የተረጋገጠ",
+    "starts": "ይጀምራል",
+    "transparentPricing": "ግልጽ ዋጋ፣ የተደበቁ ክፍያዎች የሉም",
+    "transparentPricingText": "ሙሉ ግልጽነትን እናምናለን። ሁሉም የፕሮግራም ክፍያዎች ቀድመው በግልጽ ይታወቃሉ። የክፍያ ዕቅዶች ይገኛሉ፣ እና ለምደባ ወይም የድጋፍ አገልግሎቶች የተደበቁ ክፍያዎችን በፍጹም አንጠይቅም።"
+  },
+  "candidates": {
+    "title": "የሰለጠኑ እጩዎች",
+    "subtitle": "ለዓለም አቀፍ ስራ ዝግጁ የሆኑ የተረጋገጡ፣ የሰለጠኑ ሰራተኞች ዳታቤዛችንን ያስሱ። ሁሉም እጩዎች ሁሉን አቀፍ የስልጠና ፕሮግራሞቻችንን አጠናቅቀዋል።",
+    "searchPlaceholder": "በስም፣ ክህሎቶች ወይም ልምድ ይፈልጉ...",
+    "skills": "ክህሎቶች",
+    "destinationPreference": "የመድረሻ ምርጫ",
+    "allDestinations": "ሁሉም መድረሻዎች",
+    "certifiedCandidates": "የተረጋገጠ እጩ",
+    "certifiedCandidatesPlural": "የተረጋገጡ እጩዎች",
+    "showing": "እያሳየ",
+    "noResults": "ከመስፈርቶችዎ ጋር የሚዛመዱ እጩዎች አልተገኙም።",
+    "clearFiltersToSee": "ሁሉንም እጩዎች ለማየት ማጣሪያዎችን ያጥፉ",
+    "requestShortlist": "አጭር ዝርዝር ይጠይቁ",
+    "downloadCV": "CV",
+    "age": "ዕድሜ",
+    "preferred": "ምርጫ"
+  },
+  "clients": {
+    "title": "ለቀጣሪዎች",
+    "subtitle": "ለዓለም አቀፍ ስራ ዝግጁ የሆኑ የተረጋገጡ፣ የሰለጠኑ ኢትዮጵያውያን ሰራተኞችን ያግኙ። ግልጽ ሂደት፣ የተደበቁ ክፍያዎች የሉም፣ ሁሉን አቀፍ የማክበር ድጋፍ።",
+    "requestWorkers": "ሰራተኞችን ይጠይቁ",
+    "hideRequestForm": "የጥያቄ ቅጹን ደብቅ",
+    "whyChooseUs": "ለምን Skills for Life?",
+    "fullyTrained": "ሙሉ በሙሉ የሰለጠኑ እና የተረጋገጡ",
+    "fullyTrainedDesc": "ሁሉም እጩዎች ሁሉን አቀፍ የስልጠና ፕሮግራሞችን ያጠናቅቃሉ እና በዓለም አቀፍ ደረጃ የታወቁ የምስክር ወረቀቶችን ይቀበላሉ።",
+    "complianceGuaranteed": "ማክበር ዋስትና ያለው",
+    "complianceGuaranteedDesc": "ሙሉ ማክበርን ለማረጋገጥ ሁሉንም ህጋዊ ሰነዶች፣ የስራ ፈቃዶች እና የቪዛ ሂደት እንይዛለን።",
+    "ongoingSupport": "ቀጣይነት ያለው ድጋፍ",
+    "ongoingSupportDesc": "የሰራተኛ እርካታን እና ማቆየትን ለማረጋገጥ በስራ ዕድሜ ሁሉ ቀጣይነት ያለው ድጋፍ እንሰጣለን።",
+    "ourProcess": "ሂደታችን",
+    "complianceServices": "የማክበር እና ድጋፍ አገልግሎቶች",
+    "complianceServicesText": "ለስላሳ፣ ግልጽ ሂደት ሁሉንም የህጋዊ ማክበር እና ሰነዶች ገጽታዎች እንይዛለን:",
+    "transparentPricingTitle": "ግልጽ ዋጋ",
+    "transparentPricingText": "ሙሉ ግልጽነትን እናምናለን። ሁሉም ክፍያዎች ቀድመው በግልጽ ይታወቃሉ ምንም የተደበቁ ወጪዎች የሉም። ዋጋ በመድረሻ አገር፣ በሚጠየቁ ሚናዎች እና በሚፈለጉ ሰራተኞች ብዛት ይለያያል።",
+    "contactForQuote": "ለተወሰነ ፍላጎትዎ የተዘጋጀ ዝርዝር ዋጋ ለማግኘት ያግኙን።",
+    "processSteps": {
+      "submitRequest": "ጥያቄ ያስገቡ",
+      "submitRequestDesc": "በቀላል የጥያቄ ቅጻችን ፍላጎቶችዎን እና የጊዜ ሰሌዳዎን ይሙሉ።",
+      "candidateMatching": "እጩ ማገናኘት",
+      "candidateMatchingDesc": "ቡድናችን ፍላጎቶችዎን ይገመግማል እና ብቁ፣ የሰለጠኑ እጩዎችን ያቀርባል።",
+      "selectionVerification": "ምርጫ እና ማረጋገጫ",
+      "selectionVerificationDesc": "እጩዎችን ይመርጣሉ። ሁሉንም ሰነዶች እና ማረጋገጫ እንይዛለን።",
+      "placementSupport": "ምደባ እና ድጋፍ",
+      "placementSupportDesc": "ደህንነቱ የተጠበቀ ምደባ እናመቻቻለን እና በስራ ዕድሜ ሁሉ ቀጣይነት ያለው ድጋፍ እንሰጣለን።"
+    },
+    "complianceFeatures": {
+      "passportVisa": "ህጋዊ ፓስፖርት እና ቪዛ ሂደት",
+      "workPermit": "የስራ ፈቃድ ሰነዶች",
+      "contractVerification": "የኮንትራት ማረጋገጫ እና ትርጉም",
+      "preDeparture": "ከመውጣት በፊት ዝግጅት",
+      "onSiteSupport": "በቦታ ላይ ድጋፍ እና ጥበቃ",
+      "reintegration": "የማካተት ድጋፍ"
+    }
+  },
+  "contact": {
+    "title": "ያግኙን",
+    "subtitle": "ጥያቄዎች አሉዎት? ከእርስዎ መስማት እንወዳለን። መልዕክት ይላኩልን እና በተቻለ ፍጥነት እንመልሳለን።",
+    "sendMessage": "መልዕክት ይላኩልን",
+    "contactInfo": "የእውቂያ መረጃ",
+    "address": "አድራሻ",
+    "phone": "ስልክ",
+    "email": "ኢሜይል",
+    "findUs": "ያግኙን",
+    "messageSent": "መልዕክት ተልኳል!",
+    "thankYou": "ስለተገናኙን እናመሰግናለን። በቅርቡ እንመልሳለን።",
+    "sending": "በመላክ ላይ...",
+    "form": {
+      "fullName": "ሙሉ ስም",
+      "email": "ኢሜይል",
+      "phone": "ስልክ ቁጥር",
+      "subject": "ርዕሰ ጉዳይ",
+      "message": "መልዕክት",
+      "selectSubject": "ርዕሰ ጉዳይ ይምረጡ",
+      "jobInquiry": "የስራ ጥያቄ",
+      "hiring": "ችሎታ መቅጠር",
+      "partnership": "ሽርክና",
+      "generalInquiry": "አጠቃላይ ጥያቄ"
+    }
+  },
+  "footer": {
+    "brandDescription": "በሙያዊ ስልጠና እና ክህሎት ልማት ሕይወትን ማበረታታት። በጥራት ትምህርት ፕሮግራሞች ሙያዎችን መገንባት እና የወደፊትን መቀየር።",
+    "quickLinks": "ፈጣን ማገናኛዎች",
+    "copyright": "© {year} Skills for Life Training PLC። ሁሉም መብቶች የተጠበቁ ናቸው።"
+  },
+  "forms": {
+    "fullName": "ሙሉ ስም",
+    "email": "ኢሜይል",
+    "emailAddress": "የኢሜይል አድራሻ",
+    "phone": "ስልክ",
+    "phoneNumber": "ስልክ ቁጥር",
+    "dateOfBirth": "የልደት ቀን",
+    "nationalId": "ብሔራዊ መታወቂያ ቁጥር",
+    "passport": "የፓስፖርት ቁጥር (ካለ)",
+    "experience": "ቀደም ያለ ልምድ",
+    "experiencePlaceholder": "ተዛማጅ የስራ ልምድዎን ይግለጹ...",
+    "cvLink": "የCV/ሬዚሜ ማገናኛ (አማራጭ)",
+    "cvLinkPlaceholder": "ወደ CVዎ ወይም ሬዚሜዎ ማገናኛ ይለጥፉ",
+    "companyName": "የኩባንያ ስም",
+    "country": "አገር",
+    "countryPlaceholder": "ኩባንያዎ የት ይገኛል?",
+    "contactPerson": "ግንኙነት ሰው",
+    "numberOfWorkers": "የሚፈለጉ ሰራተኞች ብዛት",
+    "rolesRequested": "የተጠየቁ ሚና(ዎች)",
+    "rolesPlaceholder": "ለምሳሌ የግንባታ ሰራተኛ፣ የጤና ረዳት፣ የቤት ሰራተኛ",
+    "preferredStartDate": "ተመራጭ የመጀመሪያ ቀን",
+    "jobDescription": "የስራ መግለጫ",
+    "jobDescPlaceholder": "ሚናውን፣ ኃላፊነቶችን፣ የስራ ሁኔታዎችን እና መስፈርቶችን ይግለጹ...",
+    "additionalNotes": "ተጨማሪ ማስታወሻዎች",
+    "notesPlaceholder": "ማንኛውም ተጨማሪ መረጃ፣ ልዩ መስፈርቶች ወይም ጥያቄዎች...",
+    "submitting": "በማስገባት ላይ...",
+    "submitRequest": "ጥያቄ ያስገቡ",
+    "submitEnrollment": "ምዝገባ ያስገቡ",
+    "submitApplication": "ማመልከቻ ያስገቡ",
+    "coverLetter": "ሽፋን ደብዳቤ",
+    "coverLetterPlaceholder": "ለዚህ ቦታ ለምን ፍላጎት እንዳለዎት ንገሩን...",
+    "resumeLink": "ሬዚሜ/CV ማገናኛ ወይም ማጠቃለያ",
+    "resumePlaceholder": "ወደ ሬዚሜዎ ማገናኛ ይለጥፉ ወይም አጭር ማጠቃለያ ያቅርቡ"
+  },
+  "modals": {
+    "enrollIn": "ይመዝገቡ",
+    "enrollmentSubmitted": "ምዝገባ ተልኳል!",
+    "enrollmentReceived": "የምዝገባ ማመልከቻዎን ተቀብለናል እና በቅርቡ እናገኝዎታለን።",
+    "enrollmentFormNote": "በዚህ የስልጠና ፕሮግራም ለመመዝገብ ከታች ያለውን ቅጽ ይሙሉ። በ* ምልክት የተደረገባቸው ሁሉም መስኮች አስፈላጊ ናቸው።",
+    "applyFor": "ያመልክቱ",
+    "applicationSubmitted": "ማመልከቻ ተልኳል!",
+    "applicationReceived": "ማመልከቻዎን ተቀብለናል እና በቅርቡ እናገኝዎታለን።",
+    "emailDirectly": "በቀጥታም ኢሜይል መላክ ይችላሉ",
+    "fillFormOrEmail": "ከታች ያለውን ቅጽ ይሙሉ ወይም በቀጥታ ኢሜይል ይላኩልን",
+    "requestShortlist": "አጭር ዝርዝር ይጠይቁ",
+    "requestSubmitted": "ጥያቄ ተልኳል!",
+    "requestReceived": "ጥያቄዎን ተቀብለናል እና ፍላጎቶችዎን ለመወያየት በ24 ሰዓታት ውስጥ እናገኝዎታለን።",
+    "requestReceivedProfile": "ጥያቄዎን ተቀብለናል እና የ{name}ን ፕሮፋይል ለመወያየት በቅርቡ እናገኝዎታለን።",
+    "shortlistFormNote": "ይህን እጩ ለአጭር ዝርዝርዎ ለመጠየቅ ከታች ያለውን ቅጽ ይሙሉ። ቡድናችን ቀጣይ እርምጃዎችን ለመወያየት ያገኝዎታል።",
+    "workerRequestForm": "የሰራተኛ ጥያቄ ቅጽ"
+  },
+  "notFound": {
+    "title": "ገጽ አልተገኘም",
+    "description": "የሚፈልጉት ገጽ የለም ወይም ተዛውሯል።",
+    "goHome": "ወደ መነሻ ይሂዱ"
+  },
+  "jobs": {
+    "title": "የስራ ዕድሎች",
+    "subtitle": "ቀጣዩን የስራ ዕድልዎን ያግኙ",
+    "searchPlaceholder": "ስራዎችን በርዕስ ወይም በመግለጫ ይፈልጉ...",
+    "category": "ምድብ",
+    "location": "ቦታ",
+    "employmentType": "የስራ አይነት",
+    "showing": "እያሳየ",
+    "job": "ስራ",
+    "jobsPlural": "ስራዎች",
+    "viewDetails": "ዝርዝሮችን ይመልከቱ",
+    "noResults": "ከመስፈርቶችዎ ጋር የሚዛመዱ ስራዎች አልተገኙም።",
+    "clearFiltersToSee": "ሁሉንም ስራዎች ለማየት ማጣሪያዎችን ያጥፉ",
+    "jobDescription": "የስራ መግለጫ",
+    "requirements": "መስፈርቶች",
+    "howToApply": "እንዴት ማመልከት ይቻላል",
+    "applyInstructions": "ፍላጎት ያላቸው እጩዎች ከላይ ያለውን ቁልፍ በመጠቀም ወይም በቀጥታ ኢሜይል በመላክ ማመልከት ይችላሉ:",
+    "applyNow": "አሁን ያመልክቱ",
+    "posted": "የተለጠፈ"
+  },
+  "admin": {
+    "title": "የአስተዳዳሪ ዳሽቦርድ",
+    "subtitle": "ስራዎችን ያስተዳድሩ እና ጥያቄዎችን ይመልከቱ",
+    "adminAccess": "የአስተዳዳሪ መዳረሻ",
+    "password": "የይለፍ ቃል",
+    "passwordPlaceholder": "የአስተዳዳሪ የይለፍ ቃል ያስገቡ",
+    "incorrectPassword": "ትክክል ያልሆነ የይለፍ ቃል",
+    "login": "ግባ",
+    "logout": "ውጣ",
+    "activeJobs": "ንቁ ስራዎች",
+    "total": "ጠቅላላ",
+    "contactInquiries": "የእውቂያ ጥያቄዎች",
+    "noInquiries": "እስካሁን ምንም ጥያቄዎች የሉም። የእውቂያ ቅጽ ማቅረቢያዎች እዚህ ይታያሉ።",
+    "seedData": "የውሂብ ምንጭ",
+    "seedDataInfo": "የስራ ውሂብ ከዚህ ይጫናል",
+    "seedDataNote": "ተጨማሪ ስራዎች ለማከል ያንን ፋይል ያርትዑ።",
+    "productionNote": "በምርት ውስጥ ይህ ከSupabase ወይም ከውሂብ ጎታዎ ጋር ይገናኛል። የእውቂያ ቅጽ ማቅረቢያዎች ለማሳያ ዓላማ በlocalStorage ውስጥ ተከማችተዋል።"
+  }
+}
+

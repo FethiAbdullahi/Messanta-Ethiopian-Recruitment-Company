@@ -4,13 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Users, Globe, Award, Heart } from 'lucide-react';
-
-const metrics = [
-  { icon: Users, value: 500, label: 'Candidates Placed', suffix: '+' },
-  { icon: Globe, value: 15, label: 'Countries', suffix: '+' },
-  { icon: Award, value: 95, label: 'Success Rate', suffix: '%' },
-  { icon: Heart, value: 1000, label: 'Lives Changed', suffix: '+' },
-];
+import { useTranslation } from '@/hooks/useTranslation';
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const [count, setCount] = useState(0);
@@ -46,6 +40,15 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export default function AboutMission() {
+  const { t } = useTranslation();
+
+  const metrics = [
+    { icon: Users, value: 500, label: t('mission.candidatesPlaced'), suffix: '+' },
+    { icon: Globe, value: 15, label: t('common.countries'), suffix: '+' },
+    { icon: Award, value: 95, label: t('common.successRate'), suffix: '%' },
+    { icon: Heart, value: 1000, label: t('mission.livesChanged'), suffix: '+' },
+  ];
+
   return (
     <section className="section-padding bg-gradient-to-b from-white to-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,20 +79,16 @@ export default function AboutMission() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-dark mb-6">
-              Our Mission
+              {t('mission.title')}
             </h2>
             <p className="text-lg text-gray-700 mb-4">
-              At Skills for Life Training PLC, we believe that every individual deserves access to
-              quality education and skill development. Our mission is to empower people with the
-              knowledge and skills needed to transform their lives and build successful careers.
+              {t('mission.text1')}
             </p>
             <p className="text-lg text-gray-700 mb-4">
-              We combine professional training programs with practical, hands-on learning to deliver
-              exceptional results for our students and partners. Every training program is a step
-              toward a more skilled, confident, and prosperous future.
+              {t('mission.text2')}
             </p>
             <p className="text-lg text-gray-700">
-              Trust, excellence, and genuine care for our students are at the heart of everything we do.
+              {t('mission.text3')}
             </p>
           </motion.div>
         </div>
@@ -100,7 +99,7 @@ export default function AboutMission() {
             const Icon = metric.icon;
             return (
               <motion.div
-                key={metric.label}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -122,4 +121,3 @@ export default function AboutMission() {
     </section>
   );
 }
-

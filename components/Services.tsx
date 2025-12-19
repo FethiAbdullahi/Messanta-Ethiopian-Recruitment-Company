@@ -2,35 +2,34 @@
 
 import { motion } from 'framer-motion';
 import { Users, Search, GraduationCap, Globe } from 'lucide-react';
-
-const services = [
-  {
-    icon: Users,
-    title: 'Professional Training',
-    description: 'Comprehensive training programs designed to develop essential skills for career success and personal growth.',
-    illustration: 'training' as const,
-  },
-  {
-    icon: Search,
-    title: 'Skill Assessment',
-    description: 'Comprehensive skill assessments to identify strengths and areas for development, ensuring personalized learning paths.',
-    illustration: 'construction' as const,
-  },
-  {
-    icon: GraduationCap,
-    title: 'Career Development',
-    description: 'Ongoing career development support and mentorship to help students achieve their professional goals.',
-    illustration: 'healthcare' as const,
-  },
-  {
-    icon: Globe,
-    title: 'Job Placement Support',
-    description: 'Career placement assistance and job readiness training to connect graduates with employment opportunities.',
-    illustration: 'hospitality' as const,
-  },
-];
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Services() {
+  const { t } = useTranslation();
+
+  const services = [
+    {
+      icon: Users,
+      title: t('services.professionalTraining'),
+      description: t('services.professionalTrainingDesc'),
+    },
+    {
+      icon: Search,
+      title: t('services.skillAssessment'),
+      description: t('services.skillAssessmentDesc'),
+    },
+    {
+      icon: GraduationCap,
+      title: t('services.careerDevelopment'),
+      description: t('services.careerDevelopmentDesc'),
+    },
+    {
+      icon: Globe,
+      title: t('services.jobPlacement'),
+      description: t('services.jobPlacementDesc'),
+    },
+  ];
+
   return (
     <section id="services" className="section-padding bg-gradient-to-b from-light to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,10 +41,10 @@ export default function Services() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-dark mb-6">
-            Our Services
+            {t('services.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Comprehensive training solutions tailored to your needs
+            {t('services.subtitle')}
           </p>
         </motion.div>
 
@@ -54,7 +53,7 @@ export default function Services() {
             const Icon = service.icon;
             return (
               <motion.div
-                key={service.title}
+                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -76,4 +75,3 @@ export default function Services() {
     </section>
   );
 }
-

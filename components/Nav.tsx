@@ -4,10 +4,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from '@/hooks/useTranslation';
+import LanguageSelector from '@/components/LanguageSelector';
 
 export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +21,10 @@ export default function Nav() {
   }, []);
 
   const navLinks = [
-    { href: '/programs', label: 'Programs' },
-    { href: '/candidates', label: 'Candidates' },
-    { href: '/clients', label: 'For Employers' },
-    { href: '/about', label: 'About' },
+    { href: '/programs', label: t('navigation.programs') },
+    { href: '/candidates', label: t('navigation.candidates') },
+    { href: '/clients', label: t('navigation.forEmployers') },
+    { href: '/about', label: t('navigation.about') },
   ];
 
   return (
@@ -44,7 +47,7 @@ export default function Nav() {
           </Link>
 
           {/* Desktop Navigation - Spread Out */}
-          <div className="hidden md:flex items-center justify-end flex-1 gap-6 lg:gap-8 xl:gap-10 ml-8">
+          <div className="hidden md:flex items-center justify-end flex-1 gap-6 lg:gap-8 xl:gap-10 ms-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -63,6 +66,10 @@ export default function Nav() {
                 }`}></span>
               </Link>
             ))}
+            
+            {/* Language Selector */}
+            <LanguageSelector variant={isScrolled ? 'dark' : 'light'} />
+            
             <Link
               href="/clients"
               className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg whitespace-nowrap ${
@@ -71,7 +78,7 @@ export default function Nav() {
                   : 'gradient-accent text-dark shadow-strong'
               }`}
             >
-              For Employers
+              {t('navigation.forEmployers')}
             </Link>
           </div>
 
@@ -110,12 +117,18 @@ export default function Nav() {
                   {link.label}
                 </Link>
               ))}
+              
+              {/* Mobile Language Selector */}
+              <div className="px-4 py-3">
+                <LanguageSelector variant="dark" />
+              </div>
+              
               <Link
                 href="/clients"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block px-6 py-3 gradient-primary text-white rounded-full text-center font-bold shadow-medium mt-4"
               >
-                For Employers
+                {t('navigation.forEmployers')}
               </Link>
             </div>
           </motion.div>
@@ -124,4 +137,3 @@ export default function Nav() {
     </nav>
   );
 }
-

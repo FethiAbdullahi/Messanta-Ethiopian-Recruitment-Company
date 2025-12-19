@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface Candidate {
   id: string;
@@ -20,6 +21,7 @@ export default function RequestShortlistModal({
   onClose,
   candidate,
 }: RequestShortlistModalProps) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     companyName: '',
     contactPerson: '',
@@ -84,12 +86,12 @@ export default function RequestShortlistModal({
             <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between">
                 <h2 className="text-2xl font-serif font-bold text-dark">
-                  Request Shortlist: {candidate.name}
+                  {t('modals.requestShortlist')}: {candidate.name}
                 </h2>
                 <button
                   onClick={onClose}
                   className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                  aria-label="Close modal"
+                  aria-label={t('common.close')}
                 >
                   <X size={24} />
                 </button>
@@ -103,21 +105,21 @@ export default function RequestShortlistModal({
                     className="text-center py-12"
                   >
                     <CheckCircle className="mx-auto mb-4 text-green-500" size={64} />
-                    <h3 className="text-2xl font-semibold text-dark mb-2">Request Submitted!</h3>
+                    <h3 className="text-2xl font-semibold text-dark mb-2">{t('modals.requestSubmitted')}</h3>
                     <p className="text-gray-600">
-                      We've received your request and will contact you soon to discuss {candidate.name}'s profile.
+                      {t('modals.requestReceivedProfile').replace('{name}', candidate.name)}
                     </p>
                   </motion.div>
                 ) : (
                   <>
                     <p className="text-gray-600 mb-6">
-                      Fill out the form below to request this candidate for your shortlist. Our team will contact you to discuss next steps.
+                      {t('modals.shortlistFormNote')}
                     </p>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
                         <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-1">
-                          Company Name *
+                          {t('forms.companyName')} *
                         </label>
                         <input
                           type="text"
@@ -132,7 +134,7 @@ export default function RequestShortlistModal({
 
                       <div>
                         <label htmlFor="contactPerson" className="block text-sm font-medium text-gray-700 mb-1">
-                          Contact Person *
+                          {t('forms.contactPerson')} *
                         </label>
                         <input
                           type="text"
@@ -148,7 +150,7 @@ export default function RequestShortlistModal({
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                            Email *
+                            {t('forms.email')} *
                           </label>
                           <input
                             type="email"
@@ -163,7 +165,7 @@ export default function RequestShortlistModal({
 
                         <div>
                           <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                            Phone *
+                            {t('forms.phone')} *
                           </label>
                           <input
                             type="tel"
@@ -179,7 +181,7 @@ export default function RequestShortlistModal({
 
                       <div>
                         <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">
-                          Country *
+                          {t('forms.country')} *
                         </label>
                         <input
                           type="text"
@@ -188,14 +190,14 @@ export default function RequestShortlistModal({
                           required
                           value={formData.country}
                           onChange={handleChange}
-                          placeholder="Where is your company located?"
+                          placeholder={t('forms.countryPlaceholder')}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
                         />
                       </div>
 
                       <div>
                         <label htmlFor="notes" className="block text-sm font-medium text-gray-700 mb-1">
-                          Additional Notes
+                          {t('forms.additionalNotes')}
                         </label>
                         <textarea
                           id="notes"
@@ -203,7 +205,7 @@ export default function RequestShortlistModal({
                           rows={4}
                           value={formData.notes}
                           onChange={handleChange}
-                          placeholder="Tell us about your requirements, timeline, or any specific needs..."
+                          placeholder={t('forms.notesPlaceholder')}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent resize-none"
                         />
                       </div>
@@ -214,14 +216,14 @@ export default function RequestShortlistModal({
                           disabled={isSubmitting}
                           className="flex-1 px-6 py-3 bg-primary text-white rounded-full font-medium hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                          {isSubmitting ? t('forms.submitting') : t('forms.submitRequest')}
                         </button>
                         <button
                           type="button"
                           onClick={onClose}
                           className="px-6 py-3 bg-gray-100 text-dark rounded-full font-medium hover:bg-gray-200 transition-colors"
                         >
-                          Cancel
+                          {t('common.cancel')}
                         </button>
                       </div>
                     </form>
@@ -235,4 +237,3 @@ export default function RequestShortlistModal({
     </AnimatePresence>
   );
 }
-

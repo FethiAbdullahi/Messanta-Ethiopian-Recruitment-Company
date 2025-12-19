@@ -3,42 +3,44 @@
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { GraduationCap, Award, Plane, Shield, Home } from 'lucide-react';
-
-const steps = [
-  {
-    icon: GraduationCap,
-    title: 'Training',
-    description: 'Comprehensive skill development and certification programs',
-    color: 'bg-accent/20 text-primary',
-  },
-  {
-    icon: Award,
-    title: 'Certification',
-    description: 'Internationally recognized certificates and credentials',
-    color: 'bg-primary/20 text-primary',
-  },
-  {
-    icon: Plane,
-    title: 'Placement',
-    description: 'Safe, legal placement with verified employers',
-    color: 'bg-accent/20 text-primary',
-  },
-  {
-    icon: Shield,
-    title: 'On-site Support',
-    description: 'Ongoing protection and support during employment',
-    color: 'bg-primary/20 text-primary',
-  },
-  {
-    icon: Home,
-    title: 'Reintegration',
-    description: 'Support for returning workers and community impact',
-    color: 'bg-accent/20 text-primary',
-  },
-];
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function PathToDeployment() {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const steps = [
+    {
+      icon: GraduationCap,
+      title: t('path.steps.training.title'),
+      description: t('path.steps.training.description'),
+      color: 'bg-accent/20 text-primary',
+    },
+    {
+      icon: Award,
+      title: t('path.steps.certification.title'),
+      description: t('path.steps.certification.description'),
+      color: 'bg-primary/20 text-primary',
+    },
+    {
+      icon: Plane,
+      title: t('path.steps.placement.title'),
+      description: t('path.steps.placement.description'),
+      color: 'bg-accent/20 text-primary',
+    },
+    {
+      icon: Shield,
+      title: t('path.steps.support.title'),
+      description: t('path.steps.support.description'),
+      color: 'bg-primary/20 text-primary',
+    },
+    {
+      icon: Home,
+      title: t('path.steps.reintegration.title'),
+      description: t('path.steps.reintegration.description'),
+      color: 'bg-accent/20 text-primary',
+    },
+  ];
 
   return (
     <section ref={containerRef} className="py-20 bg-light overflow-hidden">
@@ -51,17 +53,17 @@ export default function PathToDeployment() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-dark mb-4">
-            Path to Deployment
+            {t('path.title')}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our transparent, step-by-step process from training to successful reintegration
+            {t('path.subtitle')}
           </p>
         </motion.div>
 
         {/* Horizontal Scrollable Timeline */}
         <div className="relative">
           {/* Connection Line */}
-          <div className="absolute top-24 left-0 right-0 h-1 bg-gradient-to-r from-primary/30 via-accent/30 to-secondary/30 hidden md:block" />
+          <div className="absolute top-24 start-0 end-0 h-1 bg-gradient-to-r from-primary/30 via-accent/30 to-secondary/30 hidden md:block" />
           
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4">
             {steps.map((step, index) => {
@@ -69,7 +71,7 @@ export default function PathToDeployment() {
 
               return (
                 <motion.div
-                  key={step.title}
+                  key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -77,7 +79,7 @@ export default function PathToDeployment() {
                   className="relative"
                 >
                   {/* Step Number */}
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 gradient-accent rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-medium">
+                  <div className="absolute -top-4 start-1/2 transform -translate-x-1/2 w-10 h-10 gradient-accent rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-medium">
                     {index + 1}
                   </div>
 
@@ -100,4 +102,3 @@ export default function PathToDeployment() {
     </section>
   );
 }
-

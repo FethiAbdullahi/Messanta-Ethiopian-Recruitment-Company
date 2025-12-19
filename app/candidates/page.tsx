@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Search, Filter, X, Award } from 'lucide-react';
 import candidatesData from '@/data/candidates.json';
 import CandidateCard from '@/components/CandidateCard';
+import { useTranslation } from '@/hooks/useTranslation';
 
 type Candidate = typeof candidatesData[0];
 
@@ -12,6 +13,7 @@ const allSkills = Array.from(new Set(candidatesData.flatMap(c => c.skills)));
 const allDestinations = Array.from(new Set(candidatesData.map(c => c.destination_preference)));
 
 export default function CandidatesPage() {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [selectedDestination, setSelectedDestination] = useState<string>('All');
@@ -66,11 +68,10 @@ export default function CandidatesPage() {
             className="text-center mb-12 relative"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-dark mb-4">
-              Trained Candidates
+              {t('candidates.title')}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Browse our database of certified, trained workers ready for international employment.
-              All candidates have completed our comprehensive training programs.
+              {t('candidates.subtitle')}
             </p>
           </motion.div>
 
@@ -78,13 +79,13 @@ export default function CandidatesPage() {
         <div className="mb-8">
           {/* Search Bar */}
           <div className="relative mb-4">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <Search className="absolute start-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
             <input
               type="text"
-              placeholder="Search by name, skills, or experience..."
+              placeholder={t('candidates.searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full ps-12 pe-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
             />
           </div>
 
@@ -95,7 +96,7 @@ export default function CandidatesPage() {
               className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
             >
               <Filter size={18} />
-              Filters
+              {t('common.filters')}
               {activeFiltersCount > 0 && (
                 <span className="bg-primary text-white text-xs px-2 py-0.5 rounded-full">
                   {activeFiltersCount}
@@ -108,7 +109,7 @@ export default function CandidatesPage() {
                 className="flex items-center gap-2 text-gray-600 hover:text-dark transition-colors"
               >
                 <X size={18} />
-                Clear all
+                {t('common.clearAll')}
               </button>
             )}
           </div>
@@ -124,7 +125,7 @@ export default function CandidatesPage() {
               {/* Skills Filter */}
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Skills
+                  {t('candidates.skills')}
                 </label>
                 <div className="flex flex-wrap gap-2">
                   {allSkills.map((skill) => (
@@ -146,14 +147,14 @@ export default function CandidatesPage() {
               {/* Destination Filter */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Destination Preference
+                  {t('candidates.destinationPreference')}
                 </label>
                 <select
                   value={selectedDestination}
                   onChange={(e) => setSelectedDestination(e.target.value)}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
                 >
-                  <option value="All">All Destinations</option>
+                  <option value="All">{t('candidates.allDestinations')}</option>
                   {allDestinations.map((dest) => (
                     <option key={dest} value={dest}>
                       {dest}
@@ -167,7 +168,7 @@ export default function CandidatesPage() {
           {/* Results Count */}
           <div className="text-sm text-gray-600 flex items-center gap-2">
             <Award size={16} className="text-accent" />
-            Showing <span className="font-semibold">{filteredCandidates.length}</span> certified candidate{filteredCandidates.length !== 1 ? 's' : ''}
+            {t('candidates.showing')} <span className="font-semibold">{filteredCandidates.length}</span> {filteredCandidates.length !== 1 ? t('candidates.certifiedCandidatesPlural') : t('candidates.certifiedCandidates')}
           </div>
         </div>
 
@@ -180,12 +181,12 @@ export default function CandidatesPage() {
           </div>
         ) : (
           <div className="bg-white p-12 rounded-lg text-center">
-            <p className="text-gray-600 text-lg mb-4">No candidates found matching your criteria.</p>
+            <p className="text-gray-600 text-lg mb-4">{t('candidates.noResults')}</p>
             <button
               onClick={clearFilters}
               className="text-accent hover:text-primary transition-colors"
             >
-              Clear filters to see all candidates
+              {t('candidates.clearFiltersToSee')}
             </button>
           </div>
         )}
@@ -193,4 +194,3 @@ export default function CandidatesPage() {
     </div>
   );
 }
-

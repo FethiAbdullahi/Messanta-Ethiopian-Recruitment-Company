@@ -71,3 +71,103 @@
   }
 }
 
+/* RTL (Right-to-Left) Support for Arabic */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Flip flex direction for RTL */
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .md\:flex-row {
+  @media (min-width: 768px) {
+    flex-direction: row-reverse;
+  }
+}
+
+[dir="rtl"] .lg\:flex-row {
+  @media (min-width: 1024px) {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Flip margins and paddings for RTL */
+[dir="rtl"] .ml-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .mr-auto {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* Flip absolute positioning for RTL */
+[dir="rtl"] .left-0 {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .right-0 {
+  right: auto;
+  left: 0;
+}
+
+/* Flip transform for RTL */
+[dir="rtl"] .-translate-x-1\/2 {
+  --tw-translate-x: 50%;
+}
+
+/* Flip grid layout for RTL */
+[dir="rtl"] .lg\:grid-flow-dense {
+  @media (min-width: 1024px) {
+    direction: rtl;
+  }
+}
+
+/* Flip gap margins for RTL */
+[dir="rtl"] .gap-2 > * + * {
+  margin-left: 0;
+}
+
+/* RTL-specific icon flipping */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Timeline RTL adjustments */
+[dir="rtl"] .md\:left-1\/2 {
+  @media (min-width: 768px) {
+    left: auto;
+    right: 50%;
+  }
+}
+
+/* Form inputs RTL */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  text-align: right;
+}
+
+/* Dropdown positioning for RTL */
+[dir="rtl"] .absolute.right-0 {
+  right: auto;
+  left: 0;
+}
+
+/* Ensure smooth transitions for RTL switch */
+html {
+  transition: direction 0.3s ease;
+}
+

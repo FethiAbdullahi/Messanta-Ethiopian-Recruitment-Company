@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslation } from '@/hooks/useTransmlation';
 
 export default function Hero() {
+  const { t } = useTranslation();
 
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center">
@@ -41,7 +43,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-5 sm:space-y-6 lg:space-y-8 text-center lg:text-left"
+              className="space-y-5 sm:space-y-6 lg:space-y-8 text-center lg:text-start"
             >
               {/* Headline - Beautiful Typography Flow */}
               <motion.h1 
@@ -50,9 +52,9 @@ export default function Hero() {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[1.1] text-white drop-shadow-2xl"
               >
-                <span className="block">Every Journey</span>
-                <span className="block">Starts</span>
-                <span className="block text-accent">With a Single Step</span>
+                <span className="block">{t('hero.everyJourney')}</span>
+                <span className="block">{t('hero.starts')}</span>
+                <span className="block text-accent">{t('hero.withSingleStep')}</span>
               </motion.h1>
 
               {/* Subheadline - Elegant Spacing */}
@@ -62,7 +64,7 @@ export default function Hero() {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-xl lg:max-w-2xl mx-auto lg:mx-0 text-white/95 font-light leading-relaxed drop-shadow-lg mt-4 sm:mt-5 lg:mt-6"
               >
-                From training to placement, we guide Ethiopian workers on their path to safe, successful international careers.
+                {t('hero.subtitle')}
               </motion.p>
 
               {/* CTAs - Responsive and Beautiful */}
@@ -76,13 +78,13 @@ export default function Hero() {
                   href="/programs"
                   className="btn-primary gradient-accent text-white shadow-strong hover:shadow-xl text-sm sm:text-base lg:text-lg px-5 sm:px-7 lg:px-10 py-2.5 sm:py-3 lg:py-4 text-center"
                 >
-                  Start Your Journey
+                  {t('hero.startYourJourney')}
                 </Link>
                 <Link
                   href="/#story"
                   className="btn-secondary border-2 border-white/50 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 text-sm sm:text-base lg:text-lg px-5 sm:px-7 lg:px-10 py-2.5 sm:py-3 lg:py-4 text-center"
                 >
-                  Read Success Stories
+                  {t('hero.readSuccessStories')}
                 </Link>
               </motion.div>
             </motion.div>
@@ -115,7 +117,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 hidden sm:block"
+        className="absolute bottom-4 sm:bottom-8 start-1/2 transform -translate-x-1/2 z-20 hidden sm:block"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

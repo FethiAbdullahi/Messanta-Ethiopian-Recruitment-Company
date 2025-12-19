@@ -3,8 +3,10 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Send } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function ClientRequestForm() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     companyName: '',
     country: '',
@@ -60,7 +62,7 @@ export default function ClientRequestForm() {
       animate={{ opacity: 1, y: 0 }}
       className="bg-white p-8 rounded-lg shadow-sm"
     >
-      <h2 className="text-2xl font-serif font-bold text-dark mb-6">Worker Request Form</h2>
+      <h2 className="text-2xl font-serif font-bold text-dark mb-6">{t('modals.workerRequestForm')}</h2>
 
       {isSuccess ? (
         <motion.div
@@ -69,9 +71,9 @@ export default function ClientRequestForm() {
           className="text-center py-12"
         >
           <CheckCircle className="mx-auto mb-4 text-green-500" size={64} />
-          <h3 className="text-2xl font-semibold text-dark mb-2">Request Submitted!</h3>
+          <h3 className="text-2xl font-semibold text-dark mb-2">{t('modals.requestSubmitted')}</h3>
           <p className="text-gray-600">
-            We've received your request and will contact you within 24 hours to discuss your needs.
+            {t('modals.requestReceived')}
           </p>
         </motion.div>
       ) : (
@@ -79,7 +81,7 @@ export default function ClientRequestForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-1">
-                Company Name *
+                {t('forms.companyName')} *
               </label>
               <input
                 type="text"
@@ -94,7 +96,7 @@ export default function ClientRequestForm() {
 
             <div>
               <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">
-                Country *
+                {t('forms.country')} *
               </label>
               <input
                 type="text"
@@ -103,7 +105,7 @@ export default function ClientRequestForm() {
                 required
                 value={formData.country}
                 onChange={handleChange}
-                placeholder="Where is your company located?"
+                placeholder={t('forms.countryPlaceholder')}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
               />
             </div>
@@ -112,7 +114,7 @@ export default function ClientRequestForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="contactPerson" className="block text-sm font-medium text-gray-700 mb-1">
-                Contact Person *
+                {t('forms.contactPerson')} *
               </label>
               <input
                 type="text"
@@ -127,7 +129,7 @@ export default function ClientRequestForm() {
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email *
+                {t('forms.email')} *
               </label>
               <input
                 type="email"
@@ -144,7 +146,7 @@ export default function ClientRequestForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                Phone *
+                {t('forms.phone')} *
               </label>
               <input
                 type="tel"
@@ -159,7 +161,7 @@ export default function ClientRequestForm() {
 
             <div>
               <label htmlFor="numberOfWorkers" className="block text-sm font-medium text-gray-700 mb-1">
-                Number of Workers Needed *
+                {t('forms.numberOfWorkers')} *
               </label>
               <input
                 type="number"
@@ -176,7 +178,7 @@ export default function ClientRequestForm() {
 
           <div>
             <label htmlFor="rolesRequested" className="block text-sm font-medium text-gray-700 mb-1">
-              Role(s) Requested *
+              {t('forms.rolesRequested')} *
             </label>
             <input
               type="text"
@@ -185,14 +187,14 @@ export default function ClientRequestForm() {
               required
               value={formData.rolesRequested}
               onChange={handleChange}
-              placeholder="e.g., Construction Worker, Healthcare Assistant, Domestic Worker"
+              placeholder={t('forms.rolesPlaceholder')}
               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
             />
           </div>
 
           <div>
             <label htmlFor="startDate" className="block text-sm font-medium text-gray-700 mb-1">
-              Preferred Start Date *
+              {t('forms.preferredStartDate')} *
             </label>
             <input
               type="date"
@@ -207,7 +209,7 @@ export default function ClientRequestForm() {
 
           <div>
             <label htmlFor="jobDescription" className="block text-sm font-medium text-gray-700 mb-1">
-              Job Description *
+              {t('forms.jobDescription')} *
             </label>
             <textarea
               id="jobDescription"
@@ -216,14 +218,14 @@ export default function ClientRequestForm() {
               required
               value={formData.jobDescription}
               onChange={handleChange}
-              placeholder="Describe the role, responsibilities, working conditions, and requirements..."
+              placeholder={t('forms.jobDescPlaceholder')}
               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent resize-none"
             />
           </div>
 
           <div>
             <label htmlFor="notes" className="block text-sm font-medium text-gray-700 mb-1">
-              Additional Notes
+              {t('forms.additionalNotes')}
             </label>
             <textarea
               id="notes"
@@ -231,7 +233,7 @@ export default function ClientRequestForm() {
               rows={3}
               value={formData.notes}
               onChange={handleChange}
-              placeholder="Any additional information, special requirements, or questions..."
+              placeholder={t('forms.notesPlaceholder')}
               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent resize-none"
             />
           </div>
@@ -242,11 +244,11 @@ export default function ClientRequestForm() {
             className="w-full px-6 py-3 bg-primary text-white rounded-full font-medium hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {isSubmitting ? (
-              <>Submitting...</>
+              <>{t('forms.submitting')}</>
             ) : (
               <>
                 <Send size={20} />
-                Submit Request
+                {t('forms.submitRequest')}
               </>
             )}
           </button>
@@ -255,4 +257,3 @@ export default function ClientRequestForm() {
     </motion.div>
   );
 }
-

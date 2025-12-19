@@ -3,59 +3,78 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Heart, Target, Users, Award, Shield, Globe, TrendingUp, CheckCircle2 } from 'lucide-react';
-
-const values = [
-  {
-    icon: Heart,
-    title: 'Human-Centered',
-    description: 'We prioritize people over processes. Every interaction is personal, respectful, and meaningful.',
-  },
-  {
-    icon: Target,
-    title: 'Excellence',
-    description: 'We maintain the highest standards in training, ensuring quality education and exceptional learning experiences.',
-  },
-  {
-    icon: Users,
-    title: 'Trust',
-    description: 'Transparency and integrity guide everything we do. We build lasting relationships based on trust.',
-  },
-  {
-    icon: Award,
-    title: 'Impact',
-    description: 'We measure success by the positive impact we create in people\'s lives and communities.',
-  },
-];
-
-const timeline = [
-  {
-    year: '2020',
-    title: 'Foundation',
-    description: 'Skills for Life Training PLC was founded with a vision to empower individuals through quality education and skill development.',
-  },
-  {
-    year: '2021',
-    title: 'First Placements',
-    description: 'Successfully graduated our first cohort of students with industry-ready skills.',
-  },
-  {
-    year: '2022',
-    title: 'Expansion',
-    description: 'Expanded our training programs and established partnerships with leading organizations and employers.',
-  },
-  {
-    year: '2023',
-    title: 'Recognition',
-    description: 'Recognized as a leading training institution in Ethiopia with 500+ successful graduates.',
-  },
-  {
-    year: '2024',
-    title: 'Innovation',
-    description: 'Launched digital platform and enhanced training programs with modern learning technologies.',
-  },
-];
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function AboutPage() {
+  const { t } = useTranslation();
+
+  const values = [
+    {
+      icon: Heart,
+      title: t('about.values.humanCentered'),
+      description: t('about.values.humanCenteredDesc'),
+    },
+    {
+      icon: Target,
+      title: t('about.values.excellence'),
+      description: t('about.values.excellenceDesc'),
+    },
+    {
+      icon: Users,
+      title: t('about.values.trust'),
+      description: t('about.values.trustDesc'),
+    },
+    {
+      icon: Award,
+      title: t('about.values.impact'),
+      description: t('about.values.impactDesc'),
+    },
+  ];
+
+  const timeline = [
+    {
+      year: '2020',
+      title: t('about.timeline.2020.title'),
+      description: t('about.timeline.2020.description'),
+    },
+    {
+      year: '2021',
+      title: t('about.timeline.2021.title'),
+      description: t('about.timeline.2021.description'),
+    },
+    {
+      year: '2022',
+      title: t('about.timeline.2022.title'),
+      description: t('about.timeline.2022.description'),
+    },
+    {
+      year: '2023',
+      title: t('about.timeline.2023.title'),
+      description: t('about.timeline.2023.description'),
+    },
+    {
+      year: '2024',
+      title: t('about.timeline.2024.title'),
+      description: t('about.timeline.2024.description'),
+    },
+  ];
+
+  const goals = [
+    { icon: Shield, title: t('about.goals.regularLegalStatus'), desc: t('about.goals.regularLegalStatusDesc') },
+    { icon: Target, title: t('about.goals.fairCosts'), desc: t('about.goals.fairCostsDesc') },
+    { icon: Heart, title: t('about.goals.workerSafety'), desc: t('about.goals.workerSafetyDesc') },
+    { icon: TrendingUp, title: t('about.goals.reintegrationImpact'), desc: t('about.goals.reintegrationImpactDesc') },
+    { icon: Globe, title: t('about.goals.nationalRepresentation'), desc: t('about.goals.nationalRepresentationDesc') },
+    { icon: Users, title: t('about.goals.jobCreation'), desc: t('about.goals.jobCreationDesc') },
+    { icon: Award, title: t('about.goals.responsibleRemittance'), desc: t('about.goals.responsibleRemittanceDesc'), span: 'md:col-span-2 lg:col-span-3' },
+  ];
+
+  const workers = [
+    { src: '/smiling-construction-worker-hard-hat-generative-ai_561855-74493.avif', alt: 'Construction workers', title: t('about.workerTypes.constructionWorkers'), desc: t('about.workerTypes.constructionWorkersDesc') },
+    { src: '/nurse-tenderly-supports-elderly-woman-wheelchair.avif', alt: 'Healthcare workers', title: t('about.workerTypes.healthcareWorkers'), desc: t('about.workerTypes.healthcareWorkersDesc') },  
+    { src: '/main-maid.webp', alt: 'House Maids', title: t('about.workerTypes.houseMaids'), desc: t('about.workerTypes.houseMaidsDesc') },
+  ];
+
   return (
     <div className="pb-20 min-h-screen bg-gradient-to-b from-white via-light to-white">
       {/* Modern Hero Section with Worker Images Background */}
@@ -156,7 +175,7 @@ export default function AboutPage() {
                   className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-lg px-6 py-3 rounded-full border border-white/30 shadow-lg"
                 >
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-white font-semibold text-sm uppercase tracking-wider">About Us</span>
+                  <span className="text-white font-semibold text-sm uppercase tracking-wider">{t('about.title')}</span>
                 </motion.div>
 
                 {/* Main Headline with Creative Typography */}
@@ -166,9 +185,9 @@ export default function AboutPage() {
                   transition={{ delay: 0.3, duration: 0.8 }}
                   className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight"
                 >
-                  <span className="block text-white mb-2 drop-shadow-2xl">Our</span>
+                  <span className="block text-white mb-2 drop-shadow-2xl">{t('about.ourStory').split(' ')[0]}</span>
                   <span className="block text-white drop-shadow-2xl">
-                    Story
+                    {t('about.ourStory').split(' ').slice(1).join(' ')}
                   </span>
                 </motion.h1>
 
@@ -179,7 +198,7 @@ export default function AboutPage() {
                   transition={{ delay: 0.5, duration: 0.8 }}
                   className="text-xl md:text-2xl text-white/95 leading-relaxed max-w-xl drop-shadow-lg font-light"
                 >
-                  Transforming lives through training, trust, and opportunity. Every worker has a story — we help write the next chapter.
+                  {t('about.heroSubtitle')}
                 </motion.p>
 
                 {/* Stats or Highlights */}
@@ -191,15 +210,15 @@ export default function AboutPage() {
                 >
                   <div className="bg-white/15 backdrop-blur-lg px-6 py-4 rounded-2xl border border-white/30 shadow-xl">
                     <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">500+</div>
-                    <div className="text-white/90 text-sm font-medium">Workers Placed</div>
+                    <div className="text-white/90 text-sm font-medium">{t('common.workersPlaced')}</div>
                   </div>
                   <div className="bg-white/15 backdrop-blur-lg px-6 py-4 rounded-2xl border border-white/30 shadow-xl">
                     <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">15+</div>
-                    <div className="text-white/90 text-sm font-medium">Countries</div>
+                    <div className="text-white/90 text-sm font-medium">{t('common.countries')}</div>
                   </div>
                   <div className="bg-white/15 backdrop-blur-lg px-6 py-4 rounded-2xl border border-white/30 shadow-xl">
                     <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">95%</div>
-                    <div className="text-white/90 text-sm font-medium">Success Rate</div>
+                    <div className="text-white/90 text-sm font-medium">{t('common.successRate')}</div>
                   </div>
                 </motion.div>
               </motion.div>
@@ -223,9 +242,9 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-dark/40 via-transparent to-dark/30"></div>
                   
                   {/* Floating Badge */}
-                  <div className="absolute bottom-8 right-8 bg-white/95 backdrop-blur-lg px-6 py-4 rounded-2xl shadow-2xl border border-white/50">
-                    <div className="text-sm text-gray-600 mb-1 font-medium">Since 2020</div>
-                    <div className="text-2xl font-bold text-dark">Building Futures</div>
+                  <div className="absolute bottom-8 end-8 bg-white/95 backdrop-blur-lg px-6 py-4 rounded-2xl shadow-2xl border border-white/50">
+                    <div className="text-sm text-gray-600 mb-1 font-medium">{t('common.since')} 2020</div>
+                    <div className="text-2xl font-bold text-dark">{t('about.buildingFutures')}</div>
                   </div>
                 </div>
               </motion.div>
@@ -238,14 +257,14 @@ export default function AboutPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+          className="absolute bottom-8 start-1/2 transform -translate-x-1/2 z-20"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="text-white/80 text-sm font-medium drop-shadow-md">Scroll to explore</span>
+            <span className="text-white/80 text-sm font-medium drop-shadow-md">{t('common.scrollToExplore')}</span>
             <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
               <motion.div
                 animate={{ y: [0, 12, 0] }}
@@ -280,7 +299,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/40 via-transparent to-transparent"></div>
               </div>
               {/* Decorative Element */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-6 -end-6 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>
             </motion.div>
 
             <motion.div
@@ -290,26 +309,16 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="mb-6">
-                <span className="text-accent font-bold text-sm uppercase tracking-wider">Our Mission</span>
+                <span className="text-accent font-bold text-sm uppercase tracking-wider">{t('about.ourMission')}</span>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-dark mb-8 leading-tight">
-                Empowering Lives,<br />
-                <span className="text-gradient">One Story at a Time</span>
+                {t('about.missionTitle').split(',')[0]},<br />
+                <span className="text-gradient">{t('about.missionTitle').split(',')[1]}</span>
               </h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
-                <p>
-                  Skills for Life Training PLC transforms how Ethiopian workers access safe, well-paid opportunities abroad.
-                  We combine industry-focused training, rigorous compliance support, and transparent processes to prepare
-                  candidates for international work.
-                </p>
-                <p>
-                  Our goal is to remove barriers, eliminate hidden costs, and equip every trainee with practical skills and
-                  guidance so they can thrive overseas and return with experience that strengthens their communities.
-                </p>
-                <p className="font-semibold text-dark">
-                  We believe in a human-first approach that prioritizes worker safety, fair treatment, and long-term success
-                  for both workers and employers.
-                </p>
+                <p>{t('about.missionText1')}</p>
+                <p>{t('about.missionText2')}</p>
+                <p className="font-semibold text-dark">{t('about.missionText3')}</p>
               </div>
             </motion.div>
           </div>
@@ -324,12 +333,12 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="text-accent font-bold text-sm uppercase tracking-wider mb-4 block">What Drives Us</span>
+            <span className="text-accent font-bold text-sm uppercase tracking-wider mb-4 block">{t('about.whatDrivesUs')}</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-dark mb-6">
-              Our Core Values
+              {t('about.ourCoreValues')}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              The principles that guide every decision, every training program, and every relationship we build.
+              {t('about.coreValuesSubtitle')}
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -337,7 +346,7 @@ export default function AboutPage() {
               const Icon = value.icon;
               return (
                 <motion.div
-                  key={value.title}
+                  key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -366,28 +375,20 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="text-accent font-bold text-sm uppercase tracking-wider mb-4 block">Our Commitment</span>
+            <span className="text-accent font-bold text-sm uppercase tracking-wider mb-4 block">{t('about.ourCommitment')}</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-dark mb-6">
-              Goals & Objectives
+              {t('about.goalsObjectives')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our goals are to make overseas employment safe, fair and sustainable for Ethiopian workers. We focus on:
+              {t('about.goalsSubtitle')}
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: Shield, title: 'Regular Legal Status', desc: 'Ensuring workers have accurate, lawful passport, visa, and work permit arrangements.' },
-              { icon: Target, title: 'Fair Costs', desc: 'Maintaining transparent and reasonable fee structures to prevent unnecessary expenses.' },
-              { icon: Heart, title: 'Worker Safety', desc: 'Prioritizing protection from exploitation, abuse, and forced labor through vetting, contracts, and support.' },
-              { icon: TrendingUp, title: 'Reintegration & Impact', desc: 'Enabling returning workers to share skills and spark local development.' },
-              { icon: Globe, title: 'National Representation', desc: 'Promoting Ethiopia\'s cultural strengths and professionalism abroad.' },
-              { icon: Users, title: 'Job Creation', desc: 'Partnering with authorities and employers to expand opportunities for citizens.' },
-              { icon: Award, title: 'Responsible Remittance', desc: 'Guiding workers to use secure, legal channels for sending money home, supporting national prosperity.', span: 'md:col-span-2 lg:col-span-3' },
-            ].map((goal, index) => {
+            {goals.map((goal, index) => {
               const Icon = goal.icon;
               return (
                 <motion.div
-                  key={goal.title}
+                  key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -418,17 +419,17 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="text-accent font-bold text-sm uppercase tracking-wider mb-4 block">Our Evolution</span>
+            <span className="text-accent font-bold text-sm uppercase tracking-wider mb-4 block">{t('about.ourEvolution')}</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-dark mb-6">
-              Our Journey
+              {t('about.ourJourney')}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              From a vision to a movement — milestones that shaped who we are today.
+              {t('about.journeySubtitle')}
             </p>
           </motion.div>
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent via-primary to-accent/50 transform md:-translate-x-1/2 rounded-full"></div>
+            <div className="absolute start-8 md:start-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent via-primary to-accent/50 transform md:-translate-x-1/2 rounded-full"></div>
 
             {/* Timeline Items */}
             <div className="space-y-16">
@@ -444,12 +445,12 @@ export default function AboutPage() {
                   }`}
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-8 md:left-1/2 w-6 h-6 bg-white border-4 border-primary rounded-full transform md:-translate-x-1/2 z-10 shadow-medium"></div>
+                  <div className="absolute start-8 md:start-1/2 w-6 h-6 bg-white border-4 border-primary rounded-full transform md:-translate-x-1/2 z-10 shadow-medium"></div>
 
                   {/* Content */}
                   <div
-                    className={`ml-20 md:ml-0 md:w-5/12 ${
-                      index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'
+                    className={`ms-20 md:ms-0 md:w-5/12 ${
+                      index % 2 === 0 ? 'md:me-auto md:pe-12' : 'md:ms-auto md:ps-12'
                     }`}
                   >
                     <motion.div
@@ -479,23 +480,18 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="text-accent font-bold text-sm uppercase tracking-wider mb-4 block">Who We Serve</span>
+            <span className="text-accent font-bold text-sm uppercase tracking-wider mb-4 block">{t('about.whoWeServe')}</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-dark mb-6">
-              Our Workers
+              {t('about.ourWorkers')}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Our dedicated team of training specialists, career counselors, and support staff
-              work together to ensure the best learning outcomes for our students.
+              {t('about.workersSubtitle')}
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { src: '/smiling-construction-worker-hard-hat-generative-ai_561855-74493.avif', alt: 'Construction workers', title: 'Construction Workers', desc: 'Skilled professionals building futures' },
-              { src: '/nurse-tenderly-supports-elderly-woman-wheelchair.avif', alt: 'Healthcare workers', title: 'Healthcare Workers', desc: 'Compassionate caregivers making a difference' },  
-              { src: '/main-maid.webp', alt: 'House Maids', title: 'House Maids', desc: 'Dedicated professionals creating comfortable homes' },
-            ].map((worker, index) => (
+            {workers.map((worker, index) => (
               <motion.div
-                key={worker.title}
+                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -511,12 +507,12 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/50 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="absolute bottom-0 start-0 end-0 p-8">
                   <h3 className="text-2xl font-bold text-white mb-2">{worker.title}</h3>
                   <p className="text-white/90 text-sm">{worker.desc}</p>
                 </div>
                 {/* Decorative Corner */}
-                <div className="absolute top-6 right-6 w-12 h-12 border-2 border-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-6 end-6 w-12 h-12 border-2 border-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </motion.div>
             ))}
           </div>
@@ -525,4 +521,3 @@ export default function AboutPage() {
     </div>
   );
 }
-

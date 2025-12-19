@@ -1,0 +1,409 @@
+{
+  "common": {
+    "home": "Home",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "filters": "Filters",
+    "clearAll": "Clear all",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and",
+    "all": "All",
+    "none": "None",
+    "required": "Required",
+    "optional": "Optional",
+    "scrollToExplore": "Scroll to explore",
+    "since": "Since",
+    "workersPlaced": "Workers Placed",
+    "countries": "Countries",
+    "successRate": "Success Rate"
+  },
+  "navigation": {
+    "programs": "Programs",
+    "candidates": "Candidates",
+    "forEmployers": "For Employers",
+    "about": "About",
+    "contact": "Contact",
+    "browseJobs": "Browse Jobs",
+    "aboutUs": "About Us"
+  },
+  "hero": {
+    "everyJourney": "Every Journey",
+    "starts": "Starts",
+    "withSingleStep": "With a Single Step",
+    "subtitle": "From training to placement, we guide Ethiopian workers on their path to safe, successful international careers.",
+    "startYourJourney": "Start Your Journey",
+    "readSuccessStories": "Read Success Stories"
+  },
+  "about": {
+    "title": "About Us",
+    "ourStory": "Our Story",
+    "heroSubtitle": "Transforming lives through training, trust, and opportunity. Every worker has a story — we help write the next chapter.",
+    "buildingFutures": "Building Futures",
+    "ourMission": "Our Mission",
+    "missionTitle": "Empowering Lives, One Story at a Time",
+    "missionText1": "Skills for Life Training PLC transforms how Ethiopian workers access safe, well-paid opportunities abroad. We combine industry-focused training, rigorous compliance support, and transparent processes to prepare candidates for international work.",
+    "missionText2": "Our goal is to remove barriers, eliminate hidden costs, and equip every trainee with practical skills and guidance so they can thrive overseas and return with experience that strengthens their communities.",
+    "missionText3": "We believe in a human-first approach that prioritizes worker safety, fair treatment, and long-term success for both workers and employers.",
+    "whatDrivesUs": "What Drives Us",
+    "ourCoreValues": "Our Core Values",
+    "coreValuesSubtitle": "The principles that guide every decision, every training program, and every relationship we build.",
+    "ourCommitment": "Our Commitment",
+    "goalsObjectives": "Goals & Objectives",
+    "goalsSubtitle": "Our goals are to make overseas employment safe, fair and sustainable for Ethiopian workers. We focus on:",
+    "ourEvolution": "Our Evolution",
+    "ourJourney": "Our Journey",
+    "journeySubtitle": "From a vision to a movement — milestones that shaped who we are today.",
+    "whoWeServe": "Who We Serve",
+    "ourWorkers": "Our Workers",
+    "workersSubtitle": "Our dedicated team of training specialists, career counselors, and support staff work together to ensure the best learning outcomes for our students.",
+    "values": {
+      "humanCentered": "Human-Centered",
+      "humanCenteredDesc": "We prioritize people over processes. Every interaction is personal, respectful, and meaningful.",
+      "excellence": "Excellence",
+      "excellenceDesc": "We maintain the highest standards in training, ensuring quality education and exceptional learning experiences.",
+      "trust": "Trust",
+      "trustDesc": "Transparency and integrity guide everything we do. We build lasting relationships based on trust.",
+      "impact": "Impact",
+      "impactDesc": "We measure success by the positive impact we create in people's lives and communities."
+    },
+    "goals": {
+      "regularLegalStatus": "Regular Legal Status",
+      "regularLegalStatusDesc": "Ensuring workers have accurate, lawful passport, visa, and work permit arrangements.",
+      "fairCosts": "Fair Costs",
+      "fairCostsDesc": "Maintaining transparent and reasonable fee structures to prevent unnecessary expenses.",
+      "workerSafety": "Worker Safety",
+      "workerSafetyDesc": "Prioritizing protection from exploitation, abuse, and forced labor through vetting, contracts, and support.",
+      "reintegrationImpact": "Reintegration & Impact",
+      "reintegrationImpactDesc": "Enabling returning workers to share skills and spark local development.",
+      "nationalRepresentation": "National Representation",
+      "nationalRepresentationDesc": "Promoting Ethiopia's cultural strengths and professionalism abroad.",
+      "jobCreation": "Job Creation",
+      "jobCreationDesc": "Partnering with authorities and employers to expand opportunities for citizens.",
+      "responsibleRemittance": "Responsible Remittance",
+      "responsibleRemittanceDesc": "Guiding workers to use secure, legal channels for sending money home, supporting national prosperity."
+    },
+    "timeline": {
+      "2020": {
+        "title": "Foundation",
+        "description": "Skills for Life Training PLC was founded with a vision to empower individuals through quality education and skill development."
+      },
+      "2021": {
+        "title": "First Placements",
+        "description": "Successfully graduated our first cohort of students with industry-ready skills."
+      },
+      "2022": {
+        "title": "Expansion",
+        "description": "Expanded our training programs and established partnerships with leading organizations and employers."
+      },
+      "2023": {
+        "title": "Recognition",
+        "description": "Recognized as a leading training institution in Ethiopia with 500+ successful graduates."
+      },
+      "2024": {
+        "title": "Innovation",
+        "description": "Launched digital platform and enhanced training programs with modern learning technologies."
+      }
+    },
+    "workerTypes": {
+      "constructionWorkers": "Construction Workers",
+      "constructionWorkersDesc": "Skilled professionals building futures",
+      "healthcareWorkers": "Healthcare Workers",
+      "healthcareWorkersDesc": "Compassionate caregivers making a difference",
+      "houseMaids": "House Maids",
+      "houseMaidsDesc": "Dedicated professionals creating comfortable homes"
+    }
+  },
+  "story": {
+    "title": "The Journey",
+    "subtitle": "From aspiration to achievement — every worker has a story. Here's how we help write it.",
+    "continueJourney": "Continue the journey",
+    "steps": {
+      "beginning": {
+        "title": "The Beginning",
+        "subtitle": "A Dream Takes Root",
+        "description": "Every worker starts with a dream — to provide for their family, to build a better future, to gain skills that matter. At Skills for Life, we meet them at this moment of possibility."
+      },
+      "training": {
+        "title": "The Training",
+        "subtitle": "Skills That Transform",
+        "description": "Through comprehensive, hands-on training programs, workers develop not just technical skills, but confidence, safety awareness, and professional readiness. Every module is designed with real-world application in mind."
+      },
+      "certification": {
+        "title": "The Certification",
+        "subtitle": "Recognition & Credibility",
+        "description": "Internationally recognized certificates validate their expertise. This piece of paper represents months of dedication, countless hours of practice, and a commitment to excellence."
+      },
+      "placement": {
+        "title": "The Placement",
+        "subtitle": "A New Chapter Begins",
+        "description": "With proper documentation, legal support, and ongoing guidance, workers embark on their international journey. They carry with them not just skills, but hope, determination, and the support of our team."
+      },
+      "impact": {
+        "title": "The Impact",
+        "subtitle": "Stories of Success",
+        "description": "Years later, these workers return with experience, savings, and new skills. They invest in their communities, start businesses, and inspire the next generation. The cycle continues."
+      }
+    },
+    "cta": {
+      "title": "Ready to Begin Your Story?",
+      "subtitle": "Join hundreds of workers who have transformed their lives through Skills for Life Training.",
+      "explorePrograms": "Explore Programs",
+      "viewSuccessStories": "View Success Stories"
+    }
+  },
+  "workers": {
+    "title": "Real People, Real Stories",
+    "subtitle": "Meet the skilled workers who transformed their lives through training and dedication"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive training solutions tailored to your needs",
+    "professionalTraining": "Professional Training",
+    "professionalTrainingDesc": "Comprehensive training programs designed to develop essential skills for career success and personal growth.",
+    "skillAssessment": "Skill Assessment",
+    "skillAssessmentDesc": "Comprehensive skill assessments to identify strengths and areas for development, ensuring personalized learning paths.",
+    "careerDevelopment": "Career Development",
+    "careerDevelopmentDesc": "Ongoing career development support and mentorship to help students achieve their professional goals.",
+    "jobPlacement": "Job Placement Support",
+    "jobPlacementDesc": "Career placement assistance and job readiness training to connect graduates with employment opportunities."
+  },
+  "path": {
+    "title": "Path to Deployment",
+    "subtitle": "Our transparent, step-by-step process from training to successful reintegration",
+    "steps": {
+      "training": {
+        "title": "Training",
+        "description": "Comprehensive skill development and certification programs"
+      },
+      "certification": {
+        "title": "Certification",
+        "description": "Internationally recognized certificates and credentials"
+      },
+      "placement": {
+        "title": "Placement",
+        "description": "Safe, legal placement with verified employers"
+      },
+      "support": {
+        "title": "On-site Support",
+        "description": "Ongoing protection and support during employment"
+      },
+      "reintegration": {
+        "title": "Reintegration",
+        "description": "Support for returning workers and community impact"
+      }
+    }
+  },
+  "mission": {
+    "title": "Our Mission",
+    "text1": "At Skills for Life Training PLC, we believe that every individual deserves access to quality education and skill development. Our mission is to empower people with the knowledge and skills needed to transform their lives and build successful careers.",
+    "text2": "We combine professional training programs with practical, hands-on learning to deliver exceptional results for our students and partners. Every training program is a step toward a more skilled, confident, and prosperous future.",
+    "text3": "Trust, excellence, and genuine care for our students are at the heart of everything we do.",
+    "candidatesPlaced": "Candidates Placed",
+    "livesChanged": "Lives Changed"
+  },
+  "programs": {
+    "title": "Training Programs",
+    "subtitle": "Comprehensive training programs designed to prepare you for safe, successful overseas employment. All programs include certification, no hidden fees, and ongoing support.",
+    "enrollNow": "Enroll Now",
+    "curriculumIncludes": "Curriculum Includes:",
+    "moreModules": "+ {count} more modules",
+    "certified": "Certified",
+    "starts": "Starts",
+    "transparentPricing": "Transparent Pricing, No Hidden Fees",
+    "transparentPricingText": "We believe in complete transparency. All program fees are clearly stated upfront. Payment plans are available, and we never charge hidden fees for placement or support services."
+  },
+  "candidates": {
+    "title": "Trained Candidates",
+    "subtitle": "Browse our database of certified, trained workers ready for international employment. All candidates have completed our comprehensive training programs.",
+    "searchPlaceholder": "Search by name, skills, or experience...",
+    "skills": "Skills",
+    "destinationPreference": "Destination Preference",
+    "allDestinations": "All Destinations",
+    "certifiedCandidates": "certified candidate",
+    "certifiedCandidatesPlural": "certified candidates",
+    "showing": "Showing",
+    "noResults": "No candidates found matching your criteria.",
+    "clearFiltersToSee": "Clear filters to see all candidates",
+    "requestShortlist": "Request Shortlist",
+    "downloadCV": "CV",
+    "age": "Age",
+    "preferred": "Preferred"
+  },
+  "clients": {
+    "title": "For Employers",
+    "subtitle": "Access vetted, trained Ethiopian workers ready for international employment. Transparent process, no hidden fees, comprehensive compliance support.",
+    "requestWorkers": "Request Workers",
+    "hideRequestForm": "Hide Request Form",
+    "whyChooseUs": "Why Choose Skills for Life?",
+    "fullyTrained": "Fully Trained & Certified",
+    "fullyTrainedDesc": "All candidates complete comprehensive training programs and receive internationally recognized certifications.",
+    "complianceGuaranteed": "Compliance Guaranteed",
+    "complianceGuaranteedDesc": "We handle all legal documentation, work permits, and visa processing to ensure full compliance.",
+    "ongoingSupport": "Ongoing Support",
+    "ongoingSupportDesc": "We provide continuous support throughout employment, ensuring worker satisfaction and retention.",
+    "ourProcess": "Our Process",
+    "complianceServices": "Compliance & Support Services",
+    "complianceServicesText": "We handle all aspects of legal compliance and documentation, ensuring a smooth, transparent process:",
+    "transparentPricingTitle": "Transparent Pricing",
+    "transparentPricingText": "We believe in complete transparency. All fees are clearly stated upfront with no hidden costs. Pricing varies based on destination country, role requirements, and number of workers needed.",
+    "contactForQuote": "Contact us for a detailed quote tailored to your specific needs.",
+    "processSteps": {
+      "submitRequest": "Submit Request",
+      "submitRequestDesc": "Fill out our simple request form with your requirements and timeline.",
+      "candidateMatching": "Candidate Matching",
+      "candidateMatchingDesc": "Our team reviews your needs and presents qualified, trained candidates.",
+      "selectionVerification": "Selection & Verification",
+      "selectionVerificationDesc": "You select candidates. We handle all documentation and verification.",
+      "placementSupport": "Placement & Support",
+      "placementSupportDesc": "We facilitate safe placement and provide ongoing support throughout employment."
+    },
+    "complianceFeatures": {
+      "passportVisa": "Legal passport and visa processing",
+      "workPermit": "Work permit documentation",
+      "contractVerification": "Contract verification and translation",
+      "preDeparture": "Pre-departure orientation",
+      "onSiteSupport": "On-site support and protection",
+      "reintegration": "Reintegration assistance"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+    "sendMessage": "Send us a Message",
+    "contactInfo": "Contact Information",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "findUs": "Find Us",
+    "messageSent": "Message Sent!",
+    "thankYou": "Thank you for contacting us. We'll get back to you soon.",
+    "sending": "Sending...",
+    "form": {
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "selectSubject": "Select a subject",
+      "jobInquiry": "Job Inquiry",
+      "hiring": "Hiring Talent",
+      "partnership": "Partnership",
+      "generalInquiry": "General Inquiry"
+    }
+  },
+  "footer": {
+    "brandDescription": "Empowering lives through professional training and skill development. Building careers and transforming futures with quality education programs.",
+    "quickLinks": "Quick Links",
+    "copyright": "© {year} Skills for Life Training PLC. All rights reserved."
+  },
+  "forms": {
+    "fullName": "Full Name",
+    "email": "Email",
+    "emailAddress": "Email Address",
+    "phone": "Phone",
+    "phoneNumber": "Phone Number",
+    "dateOfBirth": "Date of Birth",
+    "nationalId": "National ID Number",
+    "passport": "Passport Number (if available)",
+    "experience": "Previous Experience",
+    "experiencePlaceholder": "Describe your relevant work experience...",
+    "cvLink": "CV/Resume Link (optional)",
+    "cvLinkPlaceholder": "Paste a link to your CV or resume",
+    "companyName": "Company Name",
+    "country": "Country",
+    "countryPlaceholder": "Where is your company located?",
+    "contactPerson": "Contact Person",
+    "numberOfWorkers": "Number of Workers Needed",
+    "rolesRequested": "Role(s) Requested",
+    "rolesPlaceholder": "e.g., Construction Worker, Healthcare Assistant, Domestic Worker",
+    "preferredStartDate": "Preferred Start Date",
+    "jobDescription": "Job Description",
+    "jobDescPlaceholder": "Describe the role, responsibilities, working conditions, and requirements...",
+    "additionalNotes": "Additional Notes",
+    "notesPlaceholder": "Any additional information, special requirements, or questions...",
+    "submitting": "Submitting...",
+    "submitRequest": "Submit Request",
+    "submitEnrollment": "Submit Enrollment",
+    "submitApplication": "Submit Application",
+    "coverLetter": "Cover Letter",
+    "coverLetterPlaceholder": "Tell us why you're interested in this position...",
+    "resumeLink": "Resume/CV Link or Summary",
+    "resumePlaceholder": "Paste a link to your resume or provide a brief summary"
+  },
+  "modals": {
+    "enrollIn": "Enroll in",
+    "enrollmentSubmitted": "Enrollment Submitted!",
+    "enrollmentReceived": "We've received your enrollment application and will contact you soon.",
+    "enrollmentFormNote": "Fill out the form below to enroll in this training program. All fields marked with * are required.",
+    "applyFor": "Apply for",
+    "applicationSubmitted": "Application Submitted!",
+    "applicationReceived": "We've received your application and will be in touch soon.",
+    "emailDirectly": "You can also email us directly at",
+    "fillFormOrEmail": "Fill out the form below or email us directly at",
+    "requestShortlist": "Request Shortlist",
+    "requestSubmitted": "Request Submitted!",
+    "requestReceived": "We've received your request and will contact you within 24 hours to discuss your needs.",
+    "requestReceivedProfile": "We've received your request and will contact you soon to discuss {name}'s profile.",
+    "shortlistFormNote": "Fill out the form below to request this candidate for your shortlist. Our team will contact you to discuss next steps.",
+    "workerRequestForm": "Worker Request Form"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go Home"
+  },
+  "jobs": {
+    "title": "Job Opportunities",
+    "subtitle": "Discover your next career opportunity",
+    "searchPlaceholder": "Search jobs by title or description...",
+    "category": "Category",
+    "location": "Location",
+    "employmentType": "Employment Type",
+    "showing": "Showing",
+    "job": "job",
+    "jobsPlural": "jobs",
+    "viewDetails": "View Details",
+    "noResults": "No jobs found matching your criteria.",
+    "clearFiltersToSee": "Clear filters to see all jobs",
+    "jobDescription": "Job Description",
+    "requirements": "Requirements",
+    "howToApply": "How to Apply",
+    "applyInstructions": "Interested candidates can apply using the button above or email us directly at:",
+    "applyNow": "Apply Now",
+    "posted": "Posted"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "subtitle": "Manage jobs and view inquiries",
+    "adminAccess": "Admin Access",
+    "password": "Password",
+    "passwordPlaceholder": "Enter admin password",
+    "incorrectPassword": "Incorrect password",
+    "login": "Login",
+    "logout": "Logout",
+    "activeJobs": "Active Jobs",
+    "total": "Total",
+    "contactInquiries": "Contact Inquiries",
+    "noInquiries": "No inquiries yet. Contact form submissions will appear here.",
+    "seedData": "Seed Data",
+    "seedDataInfo": "Job data is loaded from",
+    "seedDataNote": "To add more jobs, edit that file.",
+    "productionNote": "In production, this would connect to Supabase or your database. Contact form submissions are stored in localStorage for demo purposes."
+  }
+}
+

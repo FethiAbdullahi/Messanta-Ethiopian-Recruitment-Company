@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Briefcase, Calendar, Mail } from 'lucide-react';
 import ApplyModal from './ApplyModal';
+import { useTranslation } from '@/hooks/useTranslation';
 
 type Job = {
   id: string;
@@ -19,6 +20,7 @@ type Job = {
 };
 
 export default function JobDetailClient({ job }: { job: Job }) {
+  const { t } = useTranslation();
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
 
   return (
@@ -46,7 +48,7 @@ export default function JobDetailClient({ job }: { job: Job }) {
               </span>
               <span className="flex items-center gap-2">
                 <Calendar size={20} />
-                Posted {new Date(job.posted_at).toLocaleDateString('en-US', {
+                {t('jobs.posted')} {new Date(job.posted_at).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
@@ -61,7 +63,7 @@ export default function JobDetailClient({ job }: { job: Job }) {
                 onClick={() => setIsApplyModalOpen(true)}
                 className="px-8 py-3 bg-primary text-white rounded-full font-medium hover:scale-105 transition-transform"
               >
-                Apply Now
+                {t('jobs.applyNow')}
               </button>
             </div>
           </motion.div>
@@ -74,7 +76,7 @@ export default function JobDetailClient({ job }: { job: Job }) {
             className="bg-white rounded-lg shadow-sm p-8 space-y-6"
           >
             <div>
-              <h2 className="text-2xl font-serif font-bold text-dark mb-4">Job Description</h2>
+              <h2 className="text-2xl font-serif font-bold text-dark mb-4">{t('jobs.jobDescription')}</h2>
               <p className="text-gray-700 leading-relaxed whitespace-pre-line">
                 {job.description}
               </p>
@@ -82,7 +84,7 @@ export default function JobDetailClient({ job }: { job: Job }) {
 
             {job.requirements && (
               <div>
-                <h2 className="text-2xl font-serif font-bold text-dark mb-4">Requirements</h2>
+                <h2 className="text-2xl font-serif font-bold text-dark mb-4">{t('jobs.requirements')}</h2>
                 <p className="text-gray-700 leading-relaxed whitespace-pre-line">
                   {job.requirements}
                 </p>
@@ -90,9 +92,9 @@ export default function JobDetailClient({ job }: { job: Job }) {
             )}
 
             <div className="pt-6 border-t">
-              <h3 className="text-xl font-semibold text-dark mb-4">How to Apply</h3>
+              <h3 className="text-xl font-semibold text-dark mb-4">{t('jobs.howToApply')}</h3>
               <p className="text-gray-700 mb-4">
-                Interested candidates can apply using the button above or email us directly at:
+                {t('jobs.applyInstructions')}
               </p>
               <a
                 href={`mailto:${job.apply_email}?subject=Application for ${job.title}`}
@@ -115,4 +117,3 @@ export default function JobDetailClient({ job }: { job: Job }) {
     </>
   );
 }
-

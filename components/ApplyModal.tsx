@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle, Mail } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ApplyModalProps {
   isOpen: boolean;
@@ -12,6 +13,7 @@ interface ApplyModalProps {
 }
 
 export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: ApplyModalProps) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -77,12 +79,12 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
             <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between">
                 <h2 className="text-2xl font-serif font-bold text-dark">
-                  Apply for {jobTitle}
+                  {t('modals.applyFor')} {jobTitle}
                 </h2>
                 <button
                   onClick={onClose}
                   className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                  aria-label="Close modal"
+                  aria-label={t('common.close')}
                 >
                   <X size={24} />
                 </button>
@@ -96,12 +98,12 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
                     className="text-center py-12"
                   >
                     <CheckCircle className="mx-auto mb-4 text-green-500" size={64} />
-                    <h3 className="text-2xl font-semibold text-dark mb-2">Application Submitted!</h3>
+                    <h3 className="text-2xl font-semibold text-dark mb-2">{t('modals.applicationSubmitted')}</h3>
                     <p className="text-gray-600 mb-4">
-                      We've received your application and will be in touch soon.
+                      {t('modals.applicationReceived')}
                     </p>
                     <p className="text-sm text-gray-500">
-                      You can also email us directly at{' '}
+                      {t('modals.emailDirectly')}{' '}
                       <a href={`mailto:${applyEmail}`} className="text-accent hover:text-primary">
                         {applyEmail}
                       </a>
@@ -110,7 +112,7 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
                 ) : (
                   <>
                     <p className="text-gray-600 mb-6">
-                      Fill out the form below or email us directly at{' '}
+                      {t('modals.fillFormOrEmail')}{' '}
                       <a href={`mailto:${applyEmail}`} className="text-accent hover:text-primary flex items-center gap-1 inline-flex">
                         <Mail size={16} />
                         {applyEmail}
@@ -120,7 +122,7 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                          Full Name *
+                          {t('forms.fullName')} *
                         </label>
                         <input
                           type="text"
@@ -135,7 +137,7 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
 
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                          Email *
+                          {t('forms.email')} *
                         </label>
                         <input
                           type="email"
@@ -150,7 +152,7 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
 
                       <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                          Phone Number
+                          {t('forms.phoneNumber')}
                         </label>
                         <input
                           type="tel"
@@ -164,7 +166,7 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
 
                       <div>
                         <label htmlFor="resume" className="block text-sm font-medium text-gray-700 mb-1">
-                          Resume/CV Link or Summary *
+                          {t('forms.resumeLink')} *
                         </label>
                         <input
                           type="text"
@@ -173,14 +175,14 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
                           required
                           value={formData.resume}
                           onChange={handleChange}
-                          placeholder="Paste a link to your resume or provide a brief summary"
+                          placeholder={t('forms.resumePlaceholder')}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
                         />
                       </div>
 
                       <div>
                         <label htmlFor="coverLetter" className="block text-sm font-medium text-gray-700 mb-1">
-                          Cover Letter
+                          {t('forms.coverLetter')}
                         </label>
                         <textarea
                           id="coverLetter"
@@ -188,7 +190,7 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
                           rows={4}
                           value={formData.coverLetter}
                           onChange={handleChange}
-                          placeholder="Tell us why you're interested in this position..."
+                          placeholder={t('forms.coverLetterPlaceholder')}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent resize-none"
                         />
                       </div>
@@ -199,14 +201,14 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
                           disabled={isSubmitting}
                           className="flex-1 px-6 py-3 bg-primary text-white rounded-full font-medium hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                          {isSubmitting ? t('forms.submitting') : t('forms.submitApplication')}
                         </button>
                         <button
                           type="button"
                           onClick={onClose}
                           className="px-6 py-3 bg-gray-100 text-dark rounded-full font-medium hover:bg-gray-200 transition-colors"
                         >
-                          Cancel
+                          {t('common.cancel')}
                         </button>
                       </div>
                     </form>
@@ -220,4 +222,3 @@ export default function ApplyModal({ isOpen, onClose, jobTitle, applyEmail }: Ap
     </AnimatePresence>
   );
 }
-

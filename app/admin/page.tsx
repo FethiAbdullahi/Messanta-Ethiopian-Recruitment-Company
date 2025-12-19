@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Lock, Mail, Calendar, MessageSquare } from 'lucide-react';
 import jobsData from '@/data/jobs.json';
+import { useTranslation } from '@/hooks/useTranslation';
 
 // Simple password protection (in production, use proper authentication)
 const ADMIN_PASSWORD = 'skillsforlife2024';
 
 export default function AdminPage() {
+  const { t } = useTranslation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -44,7 +46,7 @@ export default function AdminPage() {
       loadInquiries();
       setError('');
     } else {
-      setError('Incorrect password');
+      setError(t('admin.incorrectPassword'));
     }
   };
 
@@ -68,12 +70,12 @@ export default function AdminPage() {
             </div>
           </div>
           <h1 className="text-2xl font-serif font-bold text-dark mb-4 text-center">
-            Admin Access
+            {t('admin.adminAccess')}
           </h1>
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-                Password
+                {t('admin.password')}
               </label>
               <input
                 type="password"
@@ -81,7 +83,7 @@ export default function AdminPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
-                placeholder="Enter admin password"
+                placeholder={t('admin.passwordPlaceholder')}
               />
             </div>
             {error && (
@@ -91,7 +93,7 @@ export default function AdminPage() {
               type="submit"
               className="w-full px-6 py-3 bg-primary text-white rounded-full font-medium hover:scale-105 transition-transform"
             >
-              Login
+              {t('admin.login')}
             </button>
           </form>
         </motion.div>
@@ -104,14 +106,14 @@ export default function AdminPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-4xl font-serif font-bold text-dark mb-2">Admin Dashboard</h1>
-            <p className="text-gray-600">Manage jobs and view inquiries</p>
+            <h1 className="text-4xl font-serif font-bold text-dark mb-2">{t('admin.title')}</h1>
+            <p className="text-gray-600">{t('admin.subtitle')}</p>
           </div>
           <button
             onClick={handleLogout}
             className="px-6 py-2 bg-gray-200 text-dark rounded-full font-medium hover:bg-gray-300 transition-colors"
           >
-            Logout
+            {t('admin.logout')}
           </button>
         </div>
 
@@ -122,7 +124,7 @@ export default function AdminPage() {
             animate={{ opacity: 1, y: 0 }}
             className="bg-white p-6 rounded-lg shadow-sm"
           >
-            <h2 className="text-2xl font-serif font-bold text-dark mb-4">Active Jobs</h2>
+            <h2 className="text-2xl font-serif font-bold text-dark mb-4">{t('admin.activeJobs')}</h2>
             <div className="space-y-3">
               {jobsData.map((job) => (
                 <div key={job.id} className="border-b pb-3 last:border-0">
@@ -131,7 +133,7 @@ export default function AdminPage() {
                 </div>
               ))}
             </div>
-            <p className="text-sm text-gray-500 mt-4">Total: {jobsData.length} jobs</p>
+            <p className="text-sm text-gray-500 mt-4">{t('admin.total')}: {jobsData.length} {t('jobs.jobsPlural')}</p>
           </motion.div>
 
           {/* Inquiries */}
@@ -141,7 +143,7 @@ export default function AdminPage() {
             transition={{ delay: 0.1 }}
             className="bg-white p-6 rounded-lg shadow-sm"
           >
-            <h2 className="text-2xl font-serif font-bold text-dark mb-4">Contact Inquiries</h2>
+            <h2 className="text-2xl font-serif font-bold text-dark mb-4">{t('admin.contactInquiries')}</h2>
             {inquiries.length > 0 ? (
               <div className="space-y-4">
                 {inquiries.map((inquiry, index) => (
@@ -153,12 +155,12 @@ export default function AdminPage() {
                         <p className="text-sm text-gray-600">{inquiry.email}</p>
                       </div>
                       <span className="text-xs text-gray-500">
-                        <Calendar size={14} className="inline mr-1" />
+                        <Calendar size={14} className="inline me-1" />
                         {new Date(inquiry.date || Date.now()).toLocaleDateString()}
                       </span>
                     </div>
                     <p className="text-sm text-gray-700 mt-2">
-                      <MessageSquare size={14} className="inline mr-1 text-accent" />
+                      <MessageSquare size={14} className="inline me-1 text-accent" />
                       {inquiry.subject}: {inquiry.message}
                     </p>
                   </div>
@@ -166,7 +168,7 @@ export default function AdminPage() {
               </div>
             ) : (
               <p className="text-gray-500 text-center py-8">
-                No inquiries yet. Contact form submissions will appear here.
+                {t('admin.noInquiries')}
               </p>
             )}
           </motion.div>
@@ -179,18 +181,16 @@ export default function AdminPage() {
           transition={{ delay: 0.2 }}
           className="mt-8 bg-white p-6 rounded-lg shadow-sm"
         >
-          <h2 className="text-2xl font-serif font-bold text-dark mb-4">Seed Data</h2>
+          <h2 className="text-2xl font-serif font-bold text-dark mb-4">{t('admin.seedData')}</h2>
           <p className="text-gray-600 mb-4">
-            Job data is loaded from <code className="bg-gray-100 px-2 py-1 rounded">data/jobs.json</code>.
-            To add more jobs, edit that file.
+            {t('admin.seedDataInfo')} <code className="bg-gray-100 px-2 py-1 rounded">data/jobs.json</code>.
+            {t('admin.seedDataNote')}
           </p>
           <p className="text-sm text-gray-500">
-            In production, this would connect to Supabase or your database. Contact form submissions
-            are stored in localStorage for demo purposes.
+            {t('admin.productionNote')}
           </p>
         </motion.div>
       </div>
     </div>
   );
 }
-

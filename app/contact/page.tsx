@@ -3,8 +3,10 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function ContactPage() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -57,10 +59,10 @@ export default function ContactPage() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-dark mb-6">
-            Get in Touch
+            {t('contact.title')}
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -72,7 +74,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="bg-white p-8 rounded-lg shadow-sm"
           >
-            <h2 className="text-2xl font-serif font-bold text-dark mb-6">Send us a Message</h2>
+            <h2 className="text-2xl font-serif font-bold text-dark mb-6">{t('contact.sendMessage')}</h2>
 
             {isSuccess ? (
               <motion.div
@@ -81,16 +83,16 @@ export default function ContactPage() {
                 className="text-center py-12"
               >
                 <CheckCircle className="mx-auto mb-4 text-green-500" size={64} />
-                <h3 className="text-2xl font-semibold text-dark mb-2">Message Sent!</h3>
+                <h3 className="text-2xl font-semibold text-dark mb-2">{t('contact.messageSent')}</h3>
                 <p className="text-gray-600">
-                  Thank you for contacting us. We'll get back to you soon.
+                  {t('contact.thankYou')}
                 </p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Full Name *
+                    {t('contact.form.fullName')} *
                   </label>
                   <input
                     type="text"
@@ -105,7 +107,7 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email *
+                    {t('contact.form.email')} *
                   </label>
                   <input
                     type="email"
@@ -120,7 +122,7 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                    Phone Number
+                    {t('contact.form.phone')}
                   </label>
                   <input
                     type="tel"
@@ -134,7 +136,7 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                    Subject *
+                    {t('contact.form.subject')} *
                   </label>
                   <select
                     id="subject"
@@ -144,17 +146,17 @@ export default function ContactPage() {
                     onChange={handleChange}
                     className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
                   >
-                    <option value="">Select a subject</option>
-                    <option value="job-inquiry">Job Inquiry</option>
-                    <option value="hiring">Hiring Talent</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="general">General Inquiry</option>
+                    <option value="">{t('contact.form.selectSubject')}</option>
+                    <option value="job-inquiry">{t('contact.form.jobInquiry')}</option>
+                    <option value="hiring">{t('contact.form.hiring')}</option>
+                    <option value="partnership">{t('contact.form.partnership')}</option>
+                    <option value="general">{t('contact.form.generalInquiry')}</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Message *
+                    {t('contact.form.message')} *
                   </label>
                   <textarea
                     id="message"
@@ -173,11 +175,11 @@ export default function ContactPage() {
                   className="w-full px-6 py-3 bg-primary text-white rounded-full font-medium hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
-                    <>Sending...</>
+                    <>{t('contact.sending')}</>
                   ) : (
                     <>
                       <Send size={20} />
-                      Send Message
+                      {t('contact.sendMessage')}
                     </>
                   )}
                 </button>
@@ -194,14 +196,14 @@ export default function ContactPage() {
           >
             {/* Contact Information */}
             <div className="bg-white p-8 rounded-lg shadow-sm">
-              <h2 className="text-2xl font-serif font-bold text-dark mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-serif font-bold text-dark mb-6">{t('contact.contactInfo')}</h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="text-primary" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-dark mb-1">Address</h3>
+                    <h3 className="font-semibold text-dark mb-1">{t('contact.address')}</h3>
                     <p className="text-gray-600">
                       Addis Ababa, Ethiopia
                     </p>
@@ -213,7 +215,7 @@ export default function ContactPage() {
                     <Phone className="text-primary" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-dark mb-1">Phone</h3>
+                    <h3 className="font-semibold text-dark mb-1">{t('contact.phone')}</h3>
                     <a href="tel:+251911234567" className="text-gray-600 hover:text-accent transition-colors">
                       +251 911 234 567
                     </a>
@@ -225,7 +227,7 @@ export default function ContactPage() {
                     <Mail className="text-primary" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-dark mb-1">Email</h3>
+                    <h3 className="font-semibold text-dark mb-1">{t('contact.email')}</h3>
                     <a href="mailto:info@skillsforlife.com" className="text-gray-600 hover:text-accent transition-colors">
                       info@skillsforlife.com
                     </a>
@@ -236,7 +238,7 @@ export default function ContactPage() {
 
             {/* Google Maps Embed */}
             <div className="bg-white p-8 rounded-lg shadow-sm">
-              <h2 className="text-2xl font-serif font-bold text-dark mb-4">Find Us</h2>
+              <h2 className="text-2xl font-serif font-bold text-dark mb-4">{t('contact.findUs')}</h2>
               <div className="relative w-full h-64 rounded-lg overflow-hidden">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.6091242787!2d38.6968124!3d9.0107873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164c85f8a3d3d509%3A0x4b4b3d5b3d5b3d5b!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
@@ -256,4 +258,3 @@ export default function ContactPage() {
     </div>
   );
 }
-

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { MapPin, Briefcase, Search, Filter, X } from 'lucide-react';
 import jobsData from '@/data/jobs.json';
+import { useTranslation } from '@/hooks/useTranslation';
 
 type Job = typeof jobsData[0];
 
@@ -13,6 +14,7 @@ const locations = ['All', ...Array.from(new Set(jobsData.map(job => job.location
 const types = ['All', ...Array.from(new Set(jobsData.map(job => job.type)))];
 
 export default function JobsPage() {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedLocation, setSelectedLocation] = useState('All');
@@ -56,10 +58,10 @@ export default function JobsPage() {
           className="mb-8"
         >
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-dark mb-4">
-            Job Opportunities
+            {t('jobs.title')}
           </h1>
           <p className="text-lg text-gray-600">
-            Discover your next career opportunity
+            {t('jobs.subtitle')}
           </p>
         </motion.div>
 
@@ -67,13 +69,13 @@ export default function JobsPage() {
         <div className="mb-8">
           {/* Search Bar */}
           <div className="relative mb-4">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <Search className="absolute start-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
             <input
               type="text"
-              placeholder="Search jobs by title or description..."
+              placeholder={t('jobs.searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full ps-12 pe-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
             />
           </div>
 
@@ -84,7 +86,7 @@ export default function JobsPage() {
               className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
             >
               <Filter size={18} />
-              Filters
+              {t('common.filters')}
               {activeFiltersCount > 0 && (
                 <span className="bg-primary text-white text-xs px-2 py-0.5 rounded-full">
                   {activeFiltersCount}
@@ -97,7 +99,7 @@ export default function JobsPage() {
                 className="flex items-center gap-2 text-gray-600 hover:text-dark transition-colors"
               >
                 <X size={18} />
-                Clear all
+                {t('common.clearAll')}
               </button>
             )}
           </div>
@@ -114,7 +116,7 @@ export default function JobsPage() {
                 {/* Category Filter */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Category
+                    {t('jobs.category')}
                   </label>
                   <select
                     value={selectedCategory}
@@ -123,7 +125,7 @@ export default function JobsPage() {
                   >
                     {categories.map((cat) => (
                       <option key={cat} value={cat}>
-                        {cat}
+                        {cat === 'All' ? t('common.all') : cat}
                       </option>
                     ))}
                   </select>
@@ -132,7 +134,7 @@ export default function JobsPage() {
                 {/* Location Filter */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Location
+                    {t('jobs.location')}
                   </label>
                   <select
                     value={selectedLocation}
@@ -141,7 +143,7 @@ export default function JobsPage() {
                   >
                     {locations.map((loc) => (
                       <option key={loc} value={loc}>
-                        {loc}
+                        {loc === 'All' ? t('common.all') : loc}
                       </option>
                     ))}
                   </select>
@@ -150,7 +152,7 @@ export default function JobsPage() {
                 {/* Type Filter */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Employment Type
+                    {t('jobs.employmentType')}
                   </label>
                   <select
                     value={selectedType}
@@ -159,7 +161,7 @@ export default function JobsPage() {
                   >
                     {types.map((type) => (
                       <option key={type} value={type}>
-                        {type}
+                        {type === 'All' ? t('common.all') : type}
                       </option>
                     ))}
                   </select>
@@ -170,7 +172,7 @@ export default function JobsPage() {
 
           {/* Results Count */}
           <div className="text-sm text-gray-600">
-            Showing <span className="font-semibold">{filteredJobs.length}</span> job{filteredJobs.length !== 1 ? 's' : ''}
+            {t('jobs.showing')} <span className="font-semibold">{filteredJobs.length}</span> {filteredJobs.length !== 1 ? t('jobs.jobsPlural') : t('jobs.job')}
           </div>
         </div>
 
@@ -213,7 +215,7 @@ export default function JobsPage() {
                       href={`/jobs/${job.slug}`}
                       className="inline-block px-6 py-3 bg-primary text-white rounded-full font-medium hover:scale-105 transition-transform"
                     >
-                      View Details
+                      {t('jobs.viewDetails')}
                     </Link>
                   </div>
                 </div>
@@ -221,12 +223,12 @@ export default function JobsPage() {
             ))
           ) : (
             <div className="bg-white p-12 rounded-lg text-center">
-              <p className="text-gray-600 text-lg mb-4">No jobs found matching your criteria.</p>
+              <p className="text-gray-600 text-lg mb-4">{t('jobs.noResults')}</p>
               <button
                 onClick={clearFilters}
                 className="text-accent hover:text-primary transition-colors"
               >
-                Clear filters to see all jobs
+                {t('jobs.clearFiltersToSee')}
               </button>
             </div>
           )}
@@ -235,4 +237,3 @@ export default function JobsPage() {
     </div>
   );
 }
-
