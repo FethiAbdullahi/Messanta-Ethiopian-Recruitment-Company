@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTranslation } from '@/hooks/useTransmlation';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Hero() {
   const { t } = useTranslation();
