@@ -387,6 +387,19 @@
     "applyNow": "አሁን ያመልክቱ",
     "posted": "የተለጠፈ"
   },
+  "pwa": {
+    "install": "ጫን",
+    "installApp": "መተግበሪያ ጫን",
+    "installNow": "አሁን ጫን",
+    "maybeLater": "ቆይቶ",
+    "bannerTitle": "Skills for Life ጫን",
+    "bannerDescription": "ለፈጣን ተደራሽነት እና ከመስመር ውጭ ድጋፍ ወደ መነሻ ማያ ገጽዎ ያክሉ።",
+    "modalTitle": "መተግበሪያውን ያግኙ",
+    "modalDescription": "ለተሻለ ተሞክሮ Skills for Life ን በመሳሪያዎ ላይ ይጫኑ።",
+    "featureFast": "እንደ መብረቅ ፈጣን አፈጻጸም",
+    "featureOffline": "ከመስመር ውጭ ይሰራል",
+    "featureNative": "ተፈጥሯዊ የመተግበሪያ ተሞክሮ"
+  },
   "admin": {
     "title": "የአስተዳዳሪ ዳሽቦርድ",
     "subtitle": "ስራዎችን ያስተዳድሩ እና ጥያቄዎችን ይመልከቱ",

@@ -387,6 +387,19 @@
     "applyNow": "Apply Now",
     "posted": "Posted"
   },
+  "pwa": {
+    "install": "Install",
+    "installApp": "Install App",
+    "installNow": "Install Now",
+    "maybeLater": "Maybe Later",
+    "bannerTitle": "Install Skills for Life",
+    "bannerDescription": "Add to your home screen for quick access and offline support.",
+    "modalTitle": "Get the App",
+    "modalDescription": "Install Skills for Life on your device for a better experience.",
+    "featureFast": "Lightning fast performance",
+    "featureOffline": "Works offline",
+    "featureNative": "Native app experience"
+  },
   "admin": {
     "title": "Admin Dashboard",
     "subtitle": "Manage jobs and view inquiries",

@@ -387,6 +387,19 @@
     "applyNow": "قدم الآن",
     "posted": "نُشر"
   },
+  "pwa": {
+    "install": "تثبيت",
+    "installApp": "تثبيت التطبيق",
+    "installNow": "تثبيت الآن",
+    "maybeLater": "ربما لاحقاً",
+    "bannerTitle": "تثبيت Skills for Life",
+    "bannerDescription": "أضف إلى شاشتك الرئيسية للوصول السريع والدعم بدون اتصال.",
+    "modalTitle": "احصل على التطبيق",
+    "modalDescription": "ثبّت Skills for Life على جهازك لتجربة أفضل.",
+    "featureFast": "أداء سريع كالبرق",
+    "featureOffline": "يعمل بدون اتصال",
+    "featureNative": "تجربة تطبيق أصلية"
+  },
   "admin": {
     "title": "لوحة تحكم المسؤول",
     "subtitle": "إدارة الوظائف وعرض الاستفسارات",
