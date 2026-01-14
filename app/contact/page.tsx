@@ -216,8 +216,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-dark mb-1">{t('contact.phone')}</h3>
-                    <a href="tel:+251911234567" className="text-gray-600 hover:text-accent transition-colors">
-                      +251 911 234 567
+                    <a href="tel:+251955888885" className="text-gray-600 hover:text-accent transition-colors">
+                      +251 955 88 88 85
                     </a>
                   </div>
                 </div>
