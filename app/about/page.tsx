@@ -126,7 +126,7 @@ export default function AboutPage() {
             {/* Interview */}
             <div className="relative overflow-hidden">
               <Image
-                src="/interview.webp"
+                src="/interview2.webp"
                 alt="Interview"
                 fill
                 className="object-cover scale-110"
