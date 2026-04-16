@@ -1,5 +1,29 @@
 [
   {
+    "id": "program-domestic-001",
+    "title": "Domestic Workers Training",
+    "category": "Domestic",
+    "duration": "21 days",
+    "price": "6,000 ETB",
+    "highlights": [
+      "Includes legal protection awareness"
+    ],
+    "slug": "domestic-workers-training",
+    "description": "Comprehensive training for domestic work abroad, with emphasis on safety, professional standards, and knowing your rights.",
+    "curriculum": [
+      "Arabic & English language",
+      "Housekeeping and laundry operation",
+      "Middle Eastern F&B service",
+      "Care giving",
+      "Entrepreneurship and financial literacy",
+      "Pre-departure life skills and ethics"
+    ],
+    "certification": "Certified Domestic Worker certificate",
+    "next_start": "At the beginning of each month",
+    "enroll_email": "skillsforlifeethio@gmail.com",
+    "comingSoon": false
+  },
+  {
     "id": "program-001",
     "title": "Construction Worker Training",
     "category": "Construction",
@@ -16,8 +40,9 @@
       "Cultural Awareness & Adaptation"
     ],
     "certification": "Internationally recognized certificate upon completion",
-    "next_start": "2025-12-01",
-    "enroll_email": "enroll@skillsforlife.com"
+    "next_start": "At the beginning of each month",
+    "enroll_email": "skillsforlifeethio@gmail.com",
+    "comingSoon": false
   },
   {
     "id": "program-002",
@@ -36,8 +61,9 @@
       "International Healthcare Standards"
     ],
     "certification": "Certified Healthcare Assistant certificate",
-    "next_start": "2025-12-15",
-    "enroll_email": "enroll@skillsforlife.com"
+    "next_start": "At the beginning of each month",
+    "enroll_email": "skillsforlifeethio@gmail.com",
+    "comingSoon": false
   },
   {
     "id": "program-003",
@@ -56,28 +82,8 @@
       "Cross-Cultural Communication"
     ],
     "certification": "Hospitality Service Certificate",
-    "next_start": "2025-11-20",
-    "enroll_email": "enroll@skillsforlife.com"
-  },
-  {
-    "id": "program-004",
-    "title": "Domestic Worker Training",
-    "category": "Domestic",
-    "duration": "4 weeks",
-    "price": "10,000 ETB",
-    "price_note": "No hidden fees. Rights & protection training included.",
-    "slug": "domestic-worker-training",
-    "description": "Comprehensive training for domestic work positions with emphasis on rights, safety, and professional standards. Includes legal protection education.",
-    "curriculum": [
-      "Household Management",
-      "Rights & Legal Protection",
-      "Safety & Emergency Procedures",
-      "Professional Standards",
-      "Communication Skills"
-    ],
-    "certification": "Certified Domestic Worker certificate",
-    "next_start": "2025-11-25",
-    "enroll_email": "enroll@skillsforlife.com"
+    "next_start": "At the beginning of each month",
+    "enroll_email": "skillsforlifeethio@gmail.com",
+    "comingSoon": false
   }
 ]
-

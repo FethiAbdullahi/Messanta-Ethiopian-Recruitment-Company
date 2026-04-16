@@ -228,8 +228,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-dark mb-1">{t('contact.email')}</h3>
-                    <a href="mailto:info@skillsforlife.com" className="text-gray-600 hover:text-accent transition-colors">
-                      info@skillsforlife.com
+                    <a href="mailto:skillsforlifeethio@gmail.com" className="text-gray-600 hover:text-accent transition-colors">
+                      skillsforlifeethio@gmail.com
                     </a>
                   </div>
                 </div>

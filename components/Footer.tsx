@@ -69,8 +69,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={18} />
-                <a href="mailto:info@skillsforlife.com" className="hover:text-accent transition-colors">
-                  info@skillsforlife.com
+                <a href="mailto:skillsforlifeethio@gmail.com" className="hover:text-accent transition-colors">
+                  skillsforlifeethio@gmail.com
                 </a>
               </li>
             </ul>

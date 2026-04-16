@@ -108,7 +108,7 @@ export default function InstallPWA() {
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="fixed bottom-6 right-6 z-50"
+            className="fixed bottom-6 start-6 z-40 max-w-[calc(100vw-3rem)]"
           >
             <span className="absolute inset-0 rounded-full bg-accent/40 animate-ping" />
             
@@ -138,7 +138,7 @@ export default function InstallPWA() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-end justify-center bg-black/50 p-4 backdrop-blur-sm sm:items-center"
             onClick={() => setShowInstructions(false)}
           >
             <motion.div

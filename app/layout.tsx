@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import InstallPWA from "@/components/InstallPWA";
+import WhatsAppChat from "@/components/WhatsAppChat";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const josefinSans = Josefin_Sans({ 
@@ -67,9 +68,9 @@ export default function RootLayout({
     "logo": "https://skillsforlife.com/logo.png",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+251-911-234-567",
+      "telephone": "+251-955-888-885",
       "contactType": "customer service",
-      "email": "info@skillsforlife.com",
+      "email": "skillsforlifeethio@gmail.com",
       "areaServed": "ET",
       "availableLanguage": ["en", "am", "ar"]
     },
@@ -108,6 +109,7 @@ export default function RootLayout({
           <Footer />
           <ScrollToTop />
           <InstallPWA />
+          <WhatsAppChat />
         </LanguageProvider>
       </body>
     </html>

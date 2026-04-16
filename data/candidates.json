@@ -12,6 +12,7 @@
     "languages": ["Amharic", "English"],
     "destination_preference": "Middle East",
     "image": "/Alemayehu.webp",
+    "cv_protected": true,
     "cv_url": "#"
   },
   {
@@ -27,6 +28,7 @@
     "languages": ["Amharic", "English", "Arabic"],
     "destination_preference": "Gulf Countries",
     "image": "/Meron.webp",
+    "cv_protected": true,
     "cv_url": "#"
   },
   {
@@ -42,6 +44,7 @@
     "languages": ["Amharic", "English"],
     "destination_preference": "Europe, Middle East",
     "image": "/Yonas.webp",
+    "cv_protected": true,
     "cv_url": "#"
   },
   {
@@ -57,6 +60,7 @@
     "languages": ["Amharic", "English", "Arabic"],
     "destination_preference": "Middle East",
     "image": "/Selam.webp",
+    "cv_protected": true,
     "cv_url": "#"
   },
   {
@@ -72,6 +76,7 @@
     "languages": ["Amharic", "English"],
     "destination_preference": "Middle East, Europe",
     "image": "/Tewodros.webp",
+    "cv_protected": true,
     "cv_url": "#"
   },
   {
@@ -87,6 +92,7 @@
     "languages": ["Amharic", "English"],
     "destination_preference": "Gulf Countries",
     "image": "/Hana.webp",
+    "cv_protected": true,
     "cv_url": "#"
   }
 ]
