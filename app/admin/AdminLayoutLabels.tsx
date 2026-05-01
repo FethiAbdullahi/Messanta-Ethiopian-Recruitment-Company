@@ -20,6 +20,7 @@ export function AdminLayoutLabels({
           dashboard: t('admin.navDashboard'),
           users: t('admin.navUsers'),
           enrollments: t('admin.navEnrollments'),
+          messages: t('admin.navMessages'),
         }}
       />
       <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">{children}</div>

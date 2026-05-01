@@ -1,3 +1,5 @@
+import { escapeHtml } from '@/lib/htmlEscape';
+
 const DEFAULT_ADMIN_EMAIL = 'skillsforlifeethio@gmail.com';
 
 type EnrollmentTraineePayload = {
@@ -30,14 +32,6 @@ function publicSiteUrl(): string {
   if (!u) return '';
   if (u.startsWith('http')) return u.replace(/\/$/, '');
   return `https://${u}`.replace(/\/$/, '');
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
 
 async function sendResendEmail(params: {
@@ -175,6 +169,22 @@ ${enrollmentsCta}`;
   }
 
   return { traineeEmailSent, adminEmailSent, smsSent, errors };
+}
+
+/** Fire-and-forget admin alert for site leads (contact, employer, shortlist). */
+export async function notifyAdminLead(subject: string, htmlBody: string): Promise<void> {
+  const base = publicSiteUrl();
+  const footer = base
+    ? `<p style="margin-top:12px;font-size:13px"><a href="${escapeHtml(`${base}/admin/messages`)}">View in admin</a></p>`
+    : '';
+  const res = await sendResendEmail({
+    to: [adminEmail()],
+    subject,
+    html: `${htmlBody}${footer}`,
+  });
+  if (!res.ok && res.error !== 'Resend not configured') {
+    console.error('[notifyAdminLead]', res.error);
+  }
 }
 
 function normalizePhone(raw: string): string | null {

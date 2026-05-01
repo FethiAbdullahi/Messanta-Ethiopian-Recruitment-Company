@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Users, ClipboardList } from 'lucide-react';
+import { LayoutDashboard, Users, ClipboardList, Inbox } from 'lucide-react';
 
 type Props = {
   email: string;
@@ -10,6 +10,7 @@ type Props = {
     dashboard: string;
     users: string;
     enrollments: string;
+    messages: string;
   };
 };
 
@@ -37,6 +38,10 @@ export default function AdminSubNav({ email, labels }: Props) {
           <Link href="/admin/enrollments" className={linkClass('/admin/enrollments')}>
             <ClipboardList size={18} />
             {labels.enrollments}
+          </Link>
+          <Link href="/admin/messages" className={linkClass('/admin/messages')}>
+            <Inbox size={18} />
+            {labels.messages}
           </Link>
         </div>
         <p

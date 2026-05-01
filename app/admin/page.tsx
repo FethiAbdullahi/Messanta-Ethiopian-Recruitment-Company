@@ -2,27 +2,57 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Mail, Calendar, MessageSquare, ExternalLink } from 'lucide-react';
+import { ExternalLink, Inbox } from 'lucide-react';
 import jobsData from '@/data/jobs.json';
 import { useTranslation } from '@/hooks/useTranslation';
 import { createClient, hasBrowserSupabaseConfig } from '@/lib/supabase/client';
 
+type LeadStats = {
+  enrollments: number;
+  contact: number;
+  employer: number;
+  shortlist: number;
+};
+
 export default function AdminDashboardPage() {
   const { t } = useTranslation();
-  const [inquiries, setInquiries] = useState<
-    { name?: string; email?: string; subject?: string; message?: string; date?: string }[]
-  >([]);
+  const [stats, setStats] = useState<LeadStats | null>(null);
+  const [statsLoading, setStatsLoading] = useState(true);
+  const [statsError, setStatsError] = useState<string | null>(null);
 
   useEffect(() => {
-    const stored = localStorage.getItem('contact_inquiries');
-    if (stored) {
+    let cancelled = false;
+    (async () => {
+      setStatsLoading(true);
+      setStatsError(null);
       try {
-        setInquiries(JSON.parse(stored));
+        const res = await fetch('/api/admin/stats', { credentials: 'include', cache: 'no-store' });
+        const data = (await res.json().catch(() => ({}))) as LeadStats & { error?: string };
+        if (cancelled) return;
+        if (!res.ok) {
+          setStats(null);
+          setStatsError(typeof data.error === 'string' ? data.error : t('admin.leadInboxLoadError'));
+          return;
+        }
+        setStats({
+          enrollments: Number(data.enrollments) || 0,
+          contact: Number(data.contact) || 0,
+          employer: Number(data.employer) || 0,
+          shortlist: Number(data.shortlist) || 0,
+        });
       } catch {
-        setInquiries([]);
+        if (!cancelled) {
+          setStats(null);
+          setStatsError(t('admin.leadInboxLoadError'));
+        }
+      } finally {
+        if (!cancelled) setStatsLoading(false);
       }
-    }
-  }, []);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [t]);
 
   const handleSignOut = async () => {
     if (!hasBrowserSupabaseConfig()) return;
@@ -71,6 +101,12 @@ export default function AdminDashboardPage() {
         >
           {t('admin.navEnrollments')} →
         </Link>
+        <Link
+          href="/admin/messages"
+          className="rounded-full border-2 border-primary px-5 py-2.5 text-sm font-bold text-primary hover:bg-primary/5"
+        >
+          {t('admin.navMessages')} →
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -92,32 +128,58 @@ export default function AdminDashboardPage() {
         </div>
 
         <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-          <h2 className="mb-4 font-serif text-xl font-bold text-dark">{t('admin.contactInquiries')}</h2>
-          {inquiries.length > 0 ? (
-            <div className="max-h-[28rem] space-y-4 overflow-y-auto">
-              {inquiries.map((inquiry, index) => (
-                <div key={index} className="border-b border-gray-100 pb-4 last:border-0">
-                  <div className="mb-2 flex items-start gap-3">
-                    <Mail className="mt-1 shrink-0 text-accent" size={20} />
-                    <div className="min-w-0 flex-1">
-                      <p className="font-semibold text-dark">{inquiry.name}</p>
-                      <p className="text-sm text-gray-600">{inquiry.email}</p>
-                    </div>
-                    <span className="whitespace-nowrap text-xs text-gray-500">
-                      <Calendar size={14} className="me-1 inline" />
-                      {new Date(inquiry.date || Date.now()).toLocaleDateString()}
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-700">
-                    <MessageSquare size={14} className="me-1 inline text-accent" />
-                    {inquiry.subject}: {inquiry.message}
-                  </p>
-                </div>
-              ))}
+          <div className="mb-4 flex items-start gap-3">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <Inbox size={22} />
             </div>
+            <div className="min-w-0 flex-1">
+              <h2 className="font-serif text-xl font-bold text-dark">{t('admin.leadInboxCardTitle')}</h2>
+              <p className="mt-1 text-sm text-gray-600">{t('admin.leadInboxCardSubtitle')}</p>
+            </div>
+          </div>
+
+          {statsError ? (
+            <p className="py-4 text-center text-sm text-red-600">{statsError}</p>
+          ) : statsLoading || !stats ? (
+            <p className="py-8 text-center text-gray-500">{t('common.loading')}</p>
           ) : (
-            <p className="py-8 text-center text-gray-500">{t('admin.noInquiries')}</p>
+            <>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-2">
+                <div className="rounded-xl border border-gray-100 bg-slate-50/80 p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                    {t('admin.dashboardStatContact')}
+                  </p>
+                  <p className="mt-1 font-serif text-2xl font-bold text-primary">{stats.contact}</p>
+                </div>
+                <div className="rounded-xl border border-gray-100 bg-slate-50/80 p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                    {t('admin.dashboardStatEmployer')}
+                  </p>
+                  <p className="mt-1 font-serif text-2xl font-bold text-primary">{stats.employer}</p>
+                </div>
+                <div className="rounded-xl border border-gray-100 bg-slate-50/80 p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                    {t('admin.dashboardStatShortlist')}
+                  </p>
+                  <p className="mt-1 font-serif text-2xl font-bold text-primary">{stats.shortlist}</p>
+                </div>
+                <div className="rounded-xl border border-gray-100 bg-slate-50/80 p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                    {t('admin.dashboardStatEnrollments')}
+                  </p>
+                  <p className="mt-1 font-serif text-2xl font-bold text-dark">{stats.enrollments}</p>
+                </div>
+              </div>
+              <Link
+                href="/admin/messages"
+                className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-medium hover:opacity-95"
+              >
+                {t('admin.viewAllMessages')}
+              </Link>
+            </>
           )}
+
+          <p className="mt-4 text-sm text-gray-500">{t('admin.dashboardDataNote')}</p>
         </div>
       </div>
 
@@ -127,7 +189,6 @@ export default function AdminDashboardPage() {
           {t('admin.seedDataInfo')} <code className="rounded bg-gray-100 px-2 py-0.5">data/jobs.json</code>.{' '}
           {t('admin.seedDataNote')}
         </p>
-        <p className="mt-2 text-sm text-gray-500">{t('admin.productionNote')}</p>
       </div>
     </div>
   );

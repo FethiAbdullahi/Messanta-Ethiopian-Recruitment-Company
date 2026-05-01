@@ -16,29 +16,39 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
     setIsSubmitting(true);
-
-    // In production, this would post to Supabase or an API endpoint
-    // For now, simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    // Reset form after showing success
-    setTimeout(() => {
-      setIsSuccess(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-    }, 5000);
+      const data = (await res.json().catch(() => ({}))) as { error?: string };
+      if (!res.ok) {
+        setSubmitError(typeof data.error === 'string' ? data.error : t('common.submitFailed'));
+        return;
+      }
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+        });
+      }, 5000);
+    } catch {
+      setSubmitError(t('common.submitFailed'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -168,6 +178,12 @@ export default function ContactPage() {
                     className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent resize-none"
                   />
                 </div>
+
+                {submitError ? (
+                  <p className="text-sm text-red-600" role="alert">
+                    {submitError}
+                  </p>
+                ) : null}
 
                 <button
                   type="submit"

@@ -32,29 +32,45 @@ export default function RequestShortlistModal({
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
     setIsSubmitting(true);
-
-    // Simulate API call - in production, this would post to Supabase
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    setTimeout(() => {
-      setIsSuccess(false);
-      setFormData({
-        companyName: '',
-        contactPerson: '',
-        email: '',
-        phone: '',
-        country: '',
-        notes: '',
+    try {
+      const res = await fetch('/api/shortlist-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          candidateId: candidate.id,
+          candidateName: candidate.name,
+          ...formData,
+        }),
       });
-      onClose();
-    }, 3000);
+      const data = (await res.json().catch(() => ({}))) as { error?: string };
+      if (!res.ok) {
+        setSubmitError(typeof data.error === 'string' ? data.error : t('common.submitFailed'));
+        return;
+      }
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setFormData({
+          companyName: '',
+          contactPerson: '',
+          email: '',
+          phone: '',
+          country: '',
+          notes: '',
+        });
+        onClose();
+      }, 3000);
+    } catch {
+      setSubmitError(t('common.submitFailed'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -209,6 +225,12 @@ export default function RequestShortlistModal({
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent resize-none"
                         />
                       </div>
+
+                      {submitError ? (
+                        <p className="text-sm text-red-600" role="alert">
+                          {submitError}
+                        </p>
+                      ) : null}
 
                       <div className="flex gap-4 pt-4">
                         <button
