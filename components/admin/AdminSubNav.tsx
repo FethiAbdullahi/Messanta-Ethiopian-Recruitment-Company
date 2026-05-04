@@ -6,6 +6,7 @@ import { LayoutDashboard, Users, ClipboardList, Inbox } from 'lucide-react';
 
 type Props = {
   email: string;
+  role: string;
   labels: {
     dashboard: string;
     users: string;
@@ -14,13 +15,18 @@ type Props = {
   };
 };
 
-export default function AdminSubNav({ email, labels }: Props) {
+export default function AdminSubNav({ email, role, labels }: Props) {
   const pathname = usePathname();
+  const showSuperOnlyNav = role === 'super_admin';
+
+  const isActive = (href: string) => {
+    if (href === '/admin') return pathname === '/admin';
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   const linkClass = (href: string) =>
     `flex items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-semibold transition-colors ${
-      pathname === href
-        ? 'bg-primary text-white shadow-sm'
-        : 'text-slate-600 hover:bg-primary/5 hover:text-primary'
+      isActive(href) ? 'bg-primary text-white shadow-sm' : 'text-slate-600 hover:bg-primary/5 hover:text-primary'
     }`;
 
   return (
@@ -31,18 +37,24 @@ export default function AdminSubNav({ email, labels }: Props) {
             <LayoutDashboard size={18} />
             {labels.dashboard}
           </Link>
-          <Link href="/admin/users" className={linkClass('/admin/users')}>
-            <Users size={18} />
-            {labels.users}
-          </Link>
-          <Link href="/admin/enrollments" className={linkClass('/admin/enrollments')}>
-            <ClipboardList size={18} />
-            {labels.enrollments}
-          </Link>
-          <Link href="/admin/messages" className={linkClass('/admin/messages')}>
-            <Inbox size={18} />
-            {labels.messages}
-          </Link>
+          {showSuperOnlyNav && (
+            <Link href="/admin/users" className={linkClass('/admin/users')}>
+              <Users size={18} />
+              {labels.users}
+            </Link>
+          )}
+          {showSuperOnlyNav && (
+            <Link href="/admin/enrollments" className={linkClass('/admin/enrollments')}>
+              <ClipboardList size={18} />
+              {labels.enrollments}
+            </Link>
+          )}
+          {showSuperOnlyNav && (
+            <Link href="/admin/messages" className={linkClass('/admin/messages')}>
+              <Inbox size={18} />
+              {labels.messages}
+            </Link>
+          )}
         </div>
         <p
           className="max-w-[16rem] truncate rounded-lg bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600 ring-1 ring-slate-200/80 sm:text-sm"

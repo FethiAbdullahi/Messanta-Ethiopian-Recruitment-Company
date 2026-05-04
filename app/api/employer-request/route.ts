@@ -78,8 +78,14 @@ export async function POST(request: NextRequest) {
   if (start_date.length < 4) {
     return NextResponse.json({ error: 'Start date is required.' }, { status: 400 });
   }
-  if (job_description.length < 10) {
-    return NextResponse.json({ error: 'Please describe the roles in more detail.' }, { status: 400 });
+  if (job_description.length < 5) {
+    return NextResponse.json(
+      {
+        error:
+          'Please add a short job description in the “Job description” box (below roles and start date). A sentence or two is enough.',
+      },
+      { status: 400 }
+    );
   }
 
   const notes = notesRaw.length > 0 ? notesRaw : null;

@@ -16,6 +16,7 @@ export default function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [showAdminLink, setShowAdminLink] = useState(false);
+  const [showDeskLink, setShowDeskLink] = useState(false);
   const { t } = useTranslation();
   const supabaseAuthEnabled = hasBrowserSupabaseConfig();
 
@@ -50,6 +51,7 @@ export default function Nav() {
   useEffect(() => {
     if (!user) {
       setShowAdminLink(false);
+      setShowDeskLink(false);
       return;
     }
     let cancelled = false;
@@ -58,9 +60,15 @@ export default function Nav() {
         await fetch('/api/auth/sync-profile', { method: 'POST', credentials: 'include', cache: 'no-store' });
         const r = await fetch('/api/admin/me', { credentials: 'include', cache: 'no-store' });
         const data = await r.json();
-        if (!cancelled) setShowAdminLink(Boolean(data?.isSuperAdmin));
+        if (!cancelled) {
+          setShowAdminLink(Boolean(data?.canOpenAdminShell));
+          setShowDeskLink(Boolean(data?.canOpenDesk));
+        }
       } catch {
-        if (!cancelled) setShowAdminLink(false);
+        if (!cancelled) {
+          setShowAdminLink(false);
+          setShowDeskLink(false);
+        }
       }
     })();
     return () => {
@@ -133,6 +141,16 @@ export default function Nav() {
             {supabaseAuthEnabled &&
               (user ? (
                 <>
+                  {showDeskLink && (
+                    <Link
+                      href="/desk"
+                      className={`whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+                        navSolid ? 'text-primary hover:bg-primary/10' : 'text-white hover:bg-white/10'
+                      }`}
+                    >
+                      {t('navigation.desk')}
+                    </Link>
+                  )}
                   {showAdminLink && (
                     <Link
                       href="/admin"
@@ -220,6 +238,15 @@ export default function Nav() {
               {supabaseAuthEnabled &&
                 (user ? (
                   <>
+                    {showDeskLink && (
+                      <Link
+                        href="/desk"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="mx-4 block rounded-lg px-4 py-3 font-semibold text-primary hover:bg-accent/10"
+                      >
+                        {t('navigation.desk')}
+                      </Link>
+                    )}
                     {showAdminLink && (
                       <Link
                         href="/admin"

@@ -5,9 +5,11 @@ import { useTranslation } from '@/hooks/useTranslation';
 
 export function AdminLayoutLabels({
   email,
+  role,
   children,
 }: {
   email: string;
+  role: string;
   children: React.ReactNode;
 }) {
   const { t } = useTranslation();
@@ -16,6 +18,7 @@ export function AdminLayoutLabels({
     <>
       <AdminSubNav
         email={email}
+        role={role}
         labels={{
           dashboard: t('admin.navDashboard'),
           users: t('admin.navUsers'),

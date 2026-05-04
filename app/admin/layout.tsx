@@ -36,13 +36,20 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     .eq('id', user.id)
     .maybeSingle();
 
-  if (!profile || profile.role !== 'super_admin') {
+  const role = profile?.role ?? '';
+  if (role === 'staff') {
+    redirect('/desk');
+  }
+  const canAccess = role === 'admin' || role === 'super_admin';
+  if (!profile || !canAccess) {
     redirect('/login?next=/admin&error=forbidden');
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-100/90 via-white to-slate-50 pb-20 pt-24">
-      <AdminLayoutLabels email={user.email ?? ''}>{children}</AdminLayoutLabels>
+      <AdminLayoutLabels email={user.email ?? ''} role={role}>
+        {children}
+      </AdminLayoutLabels>
     </div>
   );
 }
