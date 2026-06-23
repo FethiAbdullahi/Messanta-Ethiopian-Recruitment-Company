@@ -356,6 +356,7 @@
     "haveAccount": "Already have an account? Sign in",
     "needAccount": "Need an account? Sign up",
     "notConfigured": "Supabase is not configured. Add environment variables to enable sign-in.",
+    "networkError": "Could not reach Supabase. Check your internet connection and verify NEXT_PUBLIC_SUPABASE_URL in .env.local matches an active project in your Supabase dashboard.",
     "errorGeneric": "Could not complete sign-in. Check your email and password.",
     "checkEmail": "Check your email to confirm your account, then sign in.",
     "forgotPassword": "Forgot password?",

@@ -15,6 +15,8 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
+import { DeskFieldLabel, DeskSectionTitle } from '@/components/desk/DeskFieldLabel';
+import { DESK_GENDER_OPTIONS, deskFieldLabel, type DeskFieldKey } from '@/lib/desk/fieldLabels';
 
 const PAGE = 40;
 
@@ -38,6 +40,7 @@ export type TalentRow = {
   email: string | null;
   national_id: string | null;
   passport: string | null;
+  employment_id: string | null;
   current_address: string | null;
   city: string | null;
   woreda_subcity: string | null;
@@ -67,6 +70,7 @@ const emptyForm = () => ({
   email: '',
   nationalId: '',
   passport: '',
+  employmentId: '',
   currentAddress: '',
   city: '',
   woredaSubcity: '',
@@ -84,13 +88,17 @@ const emptyForm = () => ({
 const inputClass =
   'w-full rounded-xl border border-slate-200/90 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20';
 
-function DetailField({ label, value }: { label: string; value: string | null | undefined }) {
+function DetailField({ field, value }: { field: DeskFieldKey; value: string | null | undefined }) {
   const { t } = useTranslation();
+  const { en, am } = deskFieldLabel(field);
   const v = typeof value === 'string' ? value.trim() : '';
   const empty = t('desk.emptyField');
   return (
     <div className="grid gap-1 border-b border-slate-100 py-3 last:border-0 sm:grid-cols-[11rem_1fr] sm:gap-4 sm:items-start">
-      <dt className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{label}</dt>
+      <dt className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+        <span className="block">{en}</span>
+        <span className="mt-0.5 block text-[10px] font-semibold normal-case tracking-normal text-slate-400">{am}</span>
+      </dt>
       <dd className="text-sm leading-relaxed text-slate-800 break-words">{v.length > 0 ? v : empty}</dd>
     </div>
   );
@@ -344,8 +352,8 @@ export default function RegionalTalentsPortal() {
           >
             <div className="flex flex-wrap items-end gap-4 border-b border-slate-100 pb-6">
               <div className="min-w-[12rem] flex-1">
-                <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">
-                  {t('admin.regionalRegion')} *
+                <label className="mb-2 block">
+                  <DeskFieldLabel field="region" required />
                 </label>
                 <input
                   required
@@ -382,99 +390,145 @@ export default function RegionalTalentsPortal() {
             )}
 
             <section>
-              <h3 className="mb-4 font-serif text-lg font-bold text-slate-900">{t('admin.regionalPersonalSection')}</h3>
+              <DeskSectionTitle section="personal" />
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalFullName')} *</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="fullName" required />
+                  </label>
                   <input required value={form.fullName} onChange={onChange('fullName')} className={inputClass} />
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalGender')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="gender" />
+                  </label>
                   <select value={form.gender} onChange={onChange('gender')} className={inputClass}>
                     <option value="">{t('admin.regionalGenderPlaceholder')}</option>
-                    <option value="Female">{t('admin.regionalGenderFemale')}</option>
-                    <option value="Male">{t('admin.regionalGenderMale')}</option>
-                    <option value="Other">{t('admin.regionalGenderOther')}</option>
+                    {DESK_GENDER_OPTIONS.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.en} / {opt.am}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalDob')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="dateOfBirth" />
+                  </label>
                   <input type="date" value={form.dateOfBirth} onChange={onChange('dateOfBirth')} className={inputClass} />
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalPhone')} *</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="phone" required />
+                  </label>
                   <input required value={form.phone} onChange={onChange('phone')} className={inputClass} />
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalEmail')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="email" />
+                  </label>
                   <input type="email" value={form.email} onChange={onChange('email')} className={inputClass} />
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalNationalId')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="nationalId" />
+                  </label>
                   <input value={form.nationalId} onChange={onChange('nationalId')} className={inputClass} />
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalPassport')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="passport" />
+                  </label>
                   <input value={form.passport} onChange={onChange('passport')} className={inputClass} />
                 </div>
+                <div>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="employmentId" />
+                  </label>
+                  <input value={form.employmentId} onChange={onChange('employmentId')} className={inputClass} />
+                </div>
                 <div className="sm:col-span-2">
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalAddress')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="currentAddress" />
+                  </label>
                   <input value={form.currentAddress} onChange={onChange('currentAddress')} className={inputClass} />
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalCity')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="city" />
+                  </label>
                   <input value={form.city} onChange={onChange('city')} className={inputClass} />
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalWoreda')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="woredaSubcity" />
+                  </label>
                   <input value={form.woredaSubcity} onChange={onChange('woredaSubcity')} className={inputClass} />
                 </div>
               </div>
             </section>
 
             <section>
-              <h3 className="mb-4 font-serif text-lg font-bold text-slate-900">{t('admin.regionalEmergencySection')}</h3>
+              <DeskSectionTitle section="emergency" />
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalEmergencyName')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="emergencyContactName" />
+                  </label>
                   <input value={form.emergencyContactName} onChange={onChange('emergencyContactName')} className={inputClass} />
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalEmergencyPhone')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="emergencyContactPhone" />
+                  </label>
                   <input value={form.emergencyContactPhone} onChange={onChange('emergencyContactPhone')} className={inputClass} />
                 </div>
               </div>
             </section>
 
             <section>
-              <h3 className="mb-4 font-serif text-lg font-bold text-slate-900">{t('admin.regionalEducationSection')}</h3>
+              <DeskSectionTitle section="education" />
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalHighestEducation')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="highestEducation" />
+                  </label>
                   <input value={form.highestEducation} onChange={onChange('highestEducation')} className={inputClass} />
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalFieldOfStudy')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="fieldOfStudy" />
+                  </label>
                   <input value={form.fieldOfStudy} onChange={onChange('fieldOfStudy')} className={inputClass} />
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalInstitution')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="institutionName" />
+                  </label>
                   <input value={form.institutionName} onChange={onChange('institutionName')} className={inputClass} />
                 </div>
                 <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalGradYear')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="graduationYear" />
+                  </label>
                   <input value={form.graduationYear} onChange={onChange('graduationYear')} className={inputClass} />
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalLanguages')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="languages" />
+                  </label>
                   <input value={form.languages} onChange={onChange('languages')} className={inputClass} />
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalSkills')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="skillsSummary" />
+                  </label>
                   <textarea rows={3} value={form.skillsSummary} onChange={onChange('skillsSummary')} className={`${inputClass} resize-none`} />
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">{t('admin.regionalNotes')}</label>
+                  <label className="mb-2 block">
+                    <DeskFieldLabel field="notes" />
+                  </label>
                   <textarea rows={2} value={form.notes} onChange={onChange('notes')} className={`${inputClass} resize-none`} />
                 </div>
               </div>
@@ -503,8 +557,8 @@ export default function RegionalTalentsPortal() {
           >
             <p className="text-center text-sm leading-relaxed text-slate-600">{t('admin.regionalBulkHint')}</p>
             <div>
-              <label className="mb-2 block text-center text-xs font-bold uppercase tracking-wide text-slate-500">
-                {t('admin.regionalBulkDefaultRegion')}
+              <label className="mb-2 block">
+                <DeskFieldLabel field="bulkDefaultRegion" centered />
               </label>
               <input
                 value={bulkDefaultRegion}
@@ -515,8 +569,8 @@ export default function RegionalTalentsPortal() {
               <p className="mt-2 text-center text-xs text-slate-500">{t('admin.regionalBulkDefaultExplain')}</p>
             </div>
             <div>
-              <label className="mb-2 block text-center text-xs font-bold uppercase tracking-wide text-slate-500">
-                {t('admin.regionalBulkChooseFile')}
+              <label className="mb-2 block">
+                <DeskFieldLabel field="bulkChooseFile" centered />
               </label>
               <input
                 type="file"
@@ -753,41 +807,43 @@ export default function RegionalTalentsPortal() {
                   </button>
                 </div>
                 <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5 sm:px-8 sm:py-6">
-                  <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">{t('desk.sectionMeta')}</h3>
+                  <DeskSectionTitle section="meta" className="!mb-3 !text-xs !font-bold !uppercase !tracking-wider !text-slate-400 !font-sans" />
                   <dl className="mb-8 rounded-2xl border border-slate-100 bg-slate-50/40 px-4 py-1">
-                    <DetailField label={t('desk.metaRecordedAt')} value={new Date(detailRow.created_at).toLocaleString()} />
-                    <DetailField label={t('desk.metaSource')} value={detailRow.source} />
-                    <DetailField label={t('desk.metaRegion')} value={detailRow.region} />
+                    <DetailField field="metaRecordedAt" value={new Date(detailRow.created_at).toLocaleString()} />
+                    <DetailField field="metaSource" value={detailRow.source} />
+                    <DetailField field="metaRegion" value={detailRow.region} />
                     {scope === 'all' && (
-                      <DetailField label={t('desk.metaSubmittedBy')} value={detailRow.submitted_by_name ?? undefined} />
+                      <DetailField field="metaSubmittedBy" value={detailRow.submitted_by_name ?? undefined} />
                     )}
                   </dl>
-                  <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">{t('admin.regionalPersonalSection')}</h3>
+                  <DeskSectionTitle section="personal" className="!mb-3 !text-xs !font-bold !uppercase !tracking-wider !text-slate-400 !font-sans" />
                   <dl className="mb-8 rounded-2xl border border-slate-100 px-4 py-1">
-                    <DetailField label={t('admin.regionalGender')} value={detailRow.gender} />
-                    <DetailField label={t('admin.regionalDob')} value={detailRow.date_of_birth ?? undefined} />
-                    <DetailField label={t('admin.regionalPhone')} value={detailRow.phone} />
-                    <DetailField label={t('admin.regionalEmail')} value={detailRow.email} />
-                    <DetailField label={t('admin.regionalNationalId')} value={detailRow.national_id} />
-                    <DetailField label={t('admin.regionalPassport')} value={detailRow.passport} />
-                    <DetailField label={t('admin.regionalAddress')} value={detailRow.current_address} />
-                    <DetailField label={t('admin.regionalCity')} value={detailRow.city} />
-                    <DetailField label={t('admin.regionalWoreda')} value={detailRow.woreda_subcity} />
+                    <DetailField field="fullName" value={detailRow.full_name} />
+                    <DetailField field="gender" value={detailRow.gender} />
+                    <DetailField field="dateOfBirth" value={detailRow.date_of_birth ?? undefined} />
+                    <DetailField field="phone" value={detailRow.phone} />
+                    <DetailField field="email" value={detailRow.email} />
+                    <DetailField field="nationalId" value={detailRow.national_id} />
+                    <DetailField field="passport" value={detailRow.passport} />
+                    <DetailField field="employmentId" value={detailRow.employment_id} />
+                    <DetailField field="currentAddress" value={detailRow.current_address} />
+                    <DetailField field="city" value={detailRow.city} />
+                    <DetailField field="woredaSubcity" value={detailRow.woreda_subcity} />
                   </dl>
-                  <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">{t('admin.regionalEmergencySection')}</h3>
+                  <DeskSectionTitle section="emergency" className="!mb-3 !text-xs !font-bold !uppercase !tracking-wider !text-slate-400 !font-sans" />
                   <dl className="mb-8 rounded-2xl border border-slate-100 px-4 py-1">
-                    <DetailField label={t('admin.regionalEmergencyName')} value={detailRow.emergency_contact_name} />
-                    <DetailField label={t('admin.regionalEmergencyPhone')} value={detailRow.emergency_contact_phone} />
+                    <DetailField field="emergencyContactName" value={detailRow.emergency_contact_name} />
+                    <DetailField field="emergencyContactPhone" value={detailRow.emergency_contact_phone} />
                   </dl>
-                  <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">{t('admin.regionalEducationSection')}</h3>
+                  <DeskSectionTitle section="education" className="!mb-3 !text-xs !font-bold !uppercase !tracking-wider !text-slate-400 !font-sans" />
                   <dl className="mb-8 rounded-2xl border border-slate-100 px-4 py-1">
-                    <DetailField label={t('admin.regionalHighestEducation')} value={detailRow.highest_education} />
-                    <DetailField label={t('admin.regionalFieldOfStudy')} value={detailRow.field_of_study} />
-                    <DetailField label={t('admin.regionalInstitution')} value={detailRow.institution_name} />
-                    <DetailField label={t('admin.regionalGradYear')} value={detailRow.graduation_year} />
-                    <DetailField label={t('admin.regionalLanguages')} value={detailRow.languages} />
-                    <DetailField label={t('admin.regionalSkills')} value={detailRow.skills_summary} />
-                    <DetailField label={t('admin.regionalNotes')} value={detailRow.notes} />
+                    <DetailField field="highestEducation" value={detailRow.highest_education} />
+                    <DetailField field="fieldOfStudy" value={detailRow.field_of_study} />
+                    <DetailField field="institutionName" value={detailRow.institution_name} />
+                    <DetailField field="graduationYear" value={detailRow.graduation_year} />
+                    <DetailField field="languages" value={detailRow.languages} />
+                    <DetailField field="skillsSummary" value={detailRow.skills_summary} />
+                    <DetailField field="notes" value={detailRow.notes} />
                   </dl>
                 </div>
                 <div className="shrink-0 border-t border-slate-100 bg-slate-50/80 px-6 py-4 sm:px-8">

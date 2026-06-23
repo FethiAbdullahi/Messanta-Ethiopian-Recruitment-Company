@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
   let q = gate.admin
     .from('regional_talents')
     .select(
-      'id, created_at, updated_at, created_by, region, source, full_name, gender, date_of_birth, phone, email, national_id, passport, current_address, city, woreda_subcity, emergency_contact_name, emergency_contact_phone, highest_education, field_of_study, institution_name, graduation_year, languages, skills_summary, notes',
+      'id, created_at, updated_at, created_by, region, source, full_name, gender, date_of_birth, phone, email, national_id, passport, employment_id, current_address, city, woreda_subcity, emergency_contact_name, emergency_contact_phone, highest_education, field_of_study, institution_name, graduation_year, languages, skills_summary, notes',
       { count: 'exact' }
     )
     .order('created_at', { ascending: false });

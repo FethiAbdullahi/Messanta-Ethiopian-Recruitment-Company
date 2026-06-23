@@ -74,6 +74,9 @@ const ALIASES: Record<string, string> = {
   university: 'institution_name',
   program: 'field_of_study',
   skill: 'skills_summary',
+  work_id: 'employment_id',
+  employmentid: 'employment_id',
+  employee_id: 'employment_id',
 };
 
 export function mapHeaderToCanonical(h: string): string {
@@ -90,6 +93,7 @@ export type ParsedTalentRow = {
   email: string | null;
   national_id: string | null;
   passport: string | null;
+  employment_id: string | null;
   current_address: string | null;
   city: string | null;
   woreda_subcity: string | null;
@@ -112,6 +116,7 @@ const LIMITS: Record<keyof Omit<ParsedTalentRow, 'date_of_birth'>, number> = {
   email: 254,
   national_id: 80,
   passport: 80,
+  employment_id: 80,
   current_address: 500,
   city: 120,
   woreda_subcity: 120,
@@ -174,6 +179,7 @@ export function rowRecordToTalent(
     email: emptyToNull(clampField(get('email'), LIMITS.email)),
     national_id: emptyToNull(clampField(get('national_id'), LIMITS.national_id)),
     passport: emptyToNull(clampField(get('passport'), LIMITS.passport)),
+    employment_id: emptyToNull(clampField(get('employment_id'), LIMITS.employment_id)),
     current_address: emptyToNull(clampField(get('current_address'), LIMITS.current_address)),
     city: emptyToNull(clampField(get('city'), LIMITS.city)),
     woreda_subcity: emptyToNull(clampField(get('woreda_subcity'), LIMITS.woreda_subcity)),

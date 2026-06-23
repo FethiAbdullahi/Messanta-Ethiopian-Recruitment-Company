@@ -356,6 +356,7 @@
     "haveAccount": "መለያ አለዎት? ግባ",
     "needAccount": "መለያ ይፈልጋሉ? ይመዝገቡ",
     "notConfigured": "Supabase አልተዋቀረም። የአካባቢ ተለዋዋጮችን ያክሉ።",
+    "networkError": "Supabase መድረስ አልተቻለም። የኢንተርኔት ግንኙነትዎን ይፈትሹ እና NEXT_PUBLIC_SUPABASE_URL በ .env.local ውስጥ ንቁ Supabase ፕሮጀክት መሆኑን ያረጋግጡ።",
     "errorGeneric": "መግባት አልተሳካም። ኢሜይል እና የይለፍ ቃል ይፈትሹ።",
     "checkEmail": "መለያዎን ለማረጋገጥ ኢሜይልዎን ይመልከቱ፣ ከዚያ ይግቡ።",
     "forgotPassword": "የይለፍ ቃል ረሳኽው?",

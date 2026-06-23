@@ -356,6 +356,7 @@
     "haveAccount": "لديك حساب؟ سجّل الدخول",
     "needAccount": "تحتاج حساباً؟ سجّل",
     "notConfigured": "لم يتم إعداد Supabase. أضف متغيرات البيئة.",
+    "networkError": "تعذر الوصول إلى Supabase. تحقق من اتصال الإنترنت وتأكد أن NEXT_PUBLIC_SUPABASE_URL في .env.local يطابق مشروعاً نشطاً في لوحة Supabase.",
     "errorGeneric": "تعذر تسجيل الدخول. تحقق من البريد وكلمة المرور.",
     "checkEmail": "تحقق من بريدك لتأكيد الحساب، ثم سجّل الدخول.",
     "forgotPassword": "نسيت كلمة المرور؟",

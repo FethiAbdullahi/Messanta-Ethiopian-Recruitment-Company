@@ -91,7 +91,6 @@ export default function Nav() {
   const navLinks = [
     { href: '/programs', label: t('navigation.programs') },
     { href: '/candidates', label: t('navigation.candidates') },
-    { href: '/clients', label: t('navigation.forEmployers') },
     { href: '/about', label: t('navigation.about') },
   ];
 

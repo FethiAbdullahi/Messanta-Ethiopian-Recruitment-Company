@@ -1,15 +1,13 @@
 import { createBrowserClient } from '@supabase/ssr';
+import { getSupabaseAnonKey, getSupabasePublicUrl, hasPublicSupabaseConfig } from '@/lib/supabase/config';
 
 export function hasBrowserSupabaseConfig(): boolean {
-  return Boolean(
-    process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() &&
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim()
-  );
+  return hasPublicSupabaseConfig();
 }
 
 export function createClient() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() ?? '';
-  const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim() ?? '';
+  const url = getSupabasePublicUrl();
+  const anon = getSupabaseAnonKey();
   if (!url || !anon) {
     throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY');
   }

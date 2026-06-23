@@ -7,6 +7,22 @@ import { motion } from 'framer-motion';
 import { createClient, hasBrowserSupabaseConfig } from '@/lib/supabase/client';
 import { useTranslation } from '@/hooks/useTranslation';
 
+function getAuthErrorMessage(err: unknown, t: (key: string) => string): string {
+  if (err instanceof Error) {
+    const message = err.message.toLowerCase();
+    if (
+      message === 'failed to fetch' ||
+      message.includes('network') ||
+      message.includes('fetch failed') ||
+      err.name === 'AuthRetryableFetchError'
+    ) {
+      return t('auth.networkError');
+    }
+    return err.message;
+  }
+  return t('auth.errorGeneric');
+}
+
 function LoginForm() {
   const { t } = useTranslation();
   const router = useRouter();
@@ -78,7 +94,7 @@ function LoginForm() {
       }
     } catch (err: unknown) {
       setMessageTone('error');
-      setMessage(err instanceof Error ? err.message : t('auth.errorGeneric'));
+      setMessage(getAuthErrorMessage(err, t));
     } finally {
       setLoading(false);
     }
